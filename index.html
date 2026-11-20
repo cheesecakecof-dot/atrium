@@ -1,0 +1,3356 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Биология: сводный конспект</title>
+    <style>
+        /* ===== БАЗОВЫЕ СТИЛИ ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --coffee-1: #f5efe8;
+            --coffee-2: #ede4da;
+            --coffee-3: #e8dcd0;
+            --coffee-4: #d9c9b8;
+            --coffee-5: #c9b39e;
+            --coffee-6: #b89f87;
+            --coffee-7: #a8876d;
+            --coffee-8: #8d6e56;
+            --coffee-9: #6e5340;
+            --coffee-10: #4e3a2c;
+            --pastel-peach: #fde8d0;
+            --pastel-rose: #f8d9d4;
+            --pastel-sage: #d8e2d0;
+            --pastel-mint: #d4e8e0;
+            --pastel-lavender: #e0d8e8;
+            --pastel-cream: #fff8f0;
+            --accent: #b07d5c;
+            --accent-light: #d4a888;
+            --accent-dark: #8d5e42;
+            --text-main: #3e2e22;
+            --text-light: #6b5544;
+            --text-muted: #9a8878;
+            --border-soft: #e0d2c4;
+            --shadow-soft: rgba(107, 85, 68, 0.08);
+            --shadow-medium: rgba(107, 85, 68, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', 'Palatino Linotype', serif;
+            background-color: var(--coffee-1);
+            color: var(--text-main);
+            line-height: 1.8;
+            font-size: 17px;
+            padding: 0;
+        }
+
+        /* ===== КОНТЕЙНЕР ===== */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 30px 80px;
+        }
+
+        /* ===== ЗАГОЛОВКИ ===== */
+        h1 {
+            font-size: 2.6em;
+            text-align: center;
+            color: var(--coffee-10);
+            margin-bottom: 10px;
+            letter-spacing: 1.5px;
+            font-weight: normal;
+            font-style: italic;
+            text-shadow: 2px 2px 4px var(--shadow-soft);
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 18px auto 0;
+            border-radius: 2px;
+        }
+
+        h2 {
+            font-size: 1.9em;
+            color: var(--coffee-9);
+            margin: 50px 0 22px;
+            padding: 14px 0 14px 24px;
+            border-left: 5px solid var(--accent);
+            background: linear-gradient(90deg, var(--coffee-3), transparent);
+            border-radius: 0 8px 8px 0;
+            letter-spacing: 0.5px;
+            font-weight: normal;
+            position: relative;
+        }
+
+        h2::before {
+            content: '✦';
+            position: absolute;
+            left: -2px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            font-size: 0.6em;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: var(--coffee-8);
+            margin: 32px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px dashed var(--border-soft);
+            font-weight: normal;
+        }
+
+        h4 {
+            font-size: 1.15em;
+            color: var(--accent-dark);
+            margin: 24px 0 12px;
+            font-weight: bold;
+            letter-spacing: 0.3px;
+        }
+
+        /* ===== ТЕКСТ ===== */
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+            hyphens: auto;
+            color: var(--text-main);
+        }
+
+        strong {
+            color: var(--coffee-9);
+            font-weight: bold;
+        }
+
+        em {
+            color: var(--accent-dark);
+            font-style: italic;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--accent-light);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-dark);
+            border-bottom-color: var(--accent-dark);
+        }
+
+        /* ===== КАРТОЧКИ ===== */
+        .card {
+            background: var(--pastel-cream);
+            border: 1px solid var(--border-soft);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin: 28px 0;
+            box-shadow: 0 4px 20px var(--shadow-soft), inset 0 1px 0 rgba(255,255,255,0.7);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pastel-peach), var(--pastel-rose), var(--pastel-lavender), var(--pastel-sage), var(--pastel-mint));
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 32px var(--shadow-medium);
+            transform: translateY(-2px);
+        }
+
+        .card-sage {
+            background: linear-gradient(135deg, var(--pastel-sage), #edf3e8);
+        }
+
+        .card-rose {
+            background: linear-gradient(135deg, var(--pastel-rose), #fef3f1);
+        }
+
+        .card-mint {
+            background: linear-gradient(135deg, var(--pastel-mint), #eef6f2);
+        }
+
+        .card-lavender {
+            background: linear-gradient(135deg, var(--pastel-lavender), #f3eff7);
+        }
+
+        .card-peach {
+            background: linear-gradient(135deg, var(--pastel-peach), #fef8f2);
+        }
+
+        /* ===== БОКОВЫЕ ПОЯСНЕНИЯ ===== */
+        .sidebar-note {
+            background: var(--pastel-mint);
+            border-left: 4px solid #8fb8a0;
+            border-radius: 0 12px 12px 0;
+            padding: 18px 24px;
+            margin: 20px 0 20px 40px;
+            font-size: 0.95em;
+            color: #3d5a4a;
+            position: relative;
+            box-shadow: 2px 2px 12px rgba(143, 184, 160, 0.15);
+        }
+
+        .sidebar-note::before {
+            content: '💡';
+            position: absolute;
+            left: -16px;
+            top: 16px;
+            font-size: 1.4em;
+            background: var(--pastel-mint);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(143, 184, 160, 0.3);
+        }
+
+        .sidebar-note-wide {
+            margin-left: 0;
+            background: var(--pastel-peach);
+            border-left-color: #d4a888;
+        }
+
+        .sidebar-note-wide::before {
+            content: '📌';
+            background: var(--pastel-peach);
+        }
+
+        .sidebar-note-rose {
+            background: var(--pastel-rose);
+            border-left-color: #d4a0a0;
+            color: #6b3a3a;
+        }
+
+        .sidebar-note-rose::before {
+            content: '⚠️';
+            background: var(--pastel-rose);
+        }
+
+        /* ===== ТАБЛИЦЫ ===== */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 14px;
+            box-shadow: 0 4px 16px var(--shadow-soft);
+            border: 1px solid var(--border-soft);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+            background: var(--pastel-cream);
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--coffee-4), var(--coffee-5));
+        }
+
+        th {
+            padding: 16px 18px;
+            text-align: left;
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            border-bottom: 3px solid var(--accent);
+            font-size: 0.95em;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-soft);
+            color: var(--text-main);
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) td {
+            background: rgba(237, 228, 218, 0.35);
+        }
+
+        tr:hover td {
+            background: rgba(253, 232, 208, 0.5);
+            transition: background 0.2s ease;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            color: var(--coffee-8);
+        }
+
+        /* ===== СПИСКИ ===== */
+        ul, ol {
+            margin: 14px 0 18px 28px;
+            color: var(--text-main);
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-left: 6px;
+        }
+
+        li::marker {
+            color: var(--accent);
+        }
+
+        ul li::marker {
+            content: '▸ ';
+            font-size: 1.1em;
+        }
+
+        /* ===== ФОРМУЛЫ ===== */
+        .formula {
+            background: linear-gradient(135deg, #fdf6ee, #f5ede3);
+            border: 1px solid var(--coffee-4);
+            border-radius: 12px;
+            padding: 18px 28px;
+            margin: 18px 0;
+            text-align: center;
+            font-family: 'Cambria Math', 'Times New Roman', serif;
+            font-size: 1.25em;
+            color: var(--coffee-9);
+            letter-spacing: 1px;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.04);
+            position: relative;
+        }
+
+        .formula::before {
+            content: 'ƒ';
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-style: italic;
+            color: var(--accent-light);
+            font-size: 1.3em;
+        }
+
+        /* ===== БЛОКИ ВЫДЕЛЕНИЯ ===== */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--pastel-lavender), #f0ebf5);
+            border-radius: 14px;
+            padding: 24px 28px;
+            margin: 24px 0;
+            border-left: 5px solid #b8a0cc;
+            box-shadow: 0 2px 12px rgba(184, 160, 204, 0.15);
+        }
+
+        .highlight-box h4 {
+            color: #6b4d8a;
+            margin-top: 0;
+        }
+
+        .definition-box {
+            background: var(--pastel-sage);
+            border-radius: 14px;
+            padding: 22px 28px;
+            margin: 22px 0;
+            border: 1px solid #b8ccb0;
+            box-shadow: 0 2px 12px rgba(184, 204, 176, 0.2);
+        }
+
+        .definition-box strong:first-child {
+            color: #4a6b42;
+        }
+
+        /* ===== СХЕМЫ ===== */
+        .scheme {
+            background: var(--pastel-cream);
+            border: 2px solid var(--coffee-4);
+            border-radius: 16px;
+            padding: 28px;
+            margin: 28px 0;
+            text-align: center;
+            box-shadow: 0 4px 16px var(--shadow-soft);
+        }
+
+        .scheme-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--coffee-8);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .scheme-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 14px 0;
+        }
+
+        .scheme-box {
+            background: var(--pastel-peach);
+            border: 2px solid var(--coffee-5);
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-size: 0.95em;
+            color: var(--coffee-9);
+            min-width: 100px;
+            box-shadow: 0 2px 6px var(--shadow-soft);
+        }
+
+        .scheme-box-green {
+            background: var(--pastel-sage);
+            border-color: #a0b898;
+        }
+
+        .scheme-box-blue {
+            background: var(--pastel-mint);
+            border-color: #98b8a8;
+        }
+
+        .scheme-box-rose {
+            background: var(--pastel-rose);
+            border-color: #d0a0a0;
+        }
+
+        .scheme-arrow {
+            font-size: 1.6em;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* ===== БЕЙДЖИ ===== */
+        .badge {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin: 0 4px;
+            vertical-align: middle;
+        }
+
+        .badge-peach { background: var(--pastel-peach); color: #8d5e42; border: 1px solid #e8c8a8; }
+        .badge-rose { background: var(--pastel-rose); color: #8d4a4a; border: 1px solid #e0b0b0; }
+        .badge-sage { background: var(--pastel-sage); color: #4a6b42; border: 1px solid #b8d0b0; }
+        .badge-mint { background: var(--pastel-mint); color: #3d6b5a; border: 1px solid #b0d0c0; }
+        .badge-lavender { background: var(--pastel-lavender); color: #5a4a7a; border: 1px solid #c8b8d8; }
+
+        /* ===== РАЗДЕЛИТЕЛЬ ===== */
+        .divider {
+            text-align: center;
+            margin: 50px 0;
+            color: var(--coffee-5);
+            font-size: 1.5em;
+            letter-spacing: 12px;
+            opacity: 0.6;
+        }
+
+        /* ===== ОГЛАВЛЕНИЕ ===== */
+        .toc {
+            background: linear-gradient(135deg, var(--coffee-2), var(--coffee-3));
+            border-radius: 18px;
+            padding: 32px 38px;
+            margin: 40px 0;
+            box-shadow: 0 6px 24px var(--shadow-soft);
+            border: 1px solid var(--border-soft);
+        }
+
+        .toc h3 {
+            text-align: center;
+            border-bottom: none;
+            margin-bottom: 24px;
+            color: var(--coffee-9);
+            font-size: 1.3em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .toc ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            counter-reset: toc-counter;
+        }
+
+        .toc li {
+            counter-increment: toc-counter;
+            padding: 8px 0 8px 40px;
+            position: relative;
+            border-bottom: 1px dotted var(--coffee-4);
+            font-size: 1.05em;
+        }
+
+        .toc li:last-child {
+            border-bottom: none;
+        }
+
+        .toc li::before {
+            content: counter(toc-counter, decimal-leading-zero);
+            position: absolute;
+            left: 0;
+            top: 8px;
+            color: var(--accent);
+            font-weight: bold;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        .toc a {
+            color: var(--coffee-8);
+            border-bottom: none;
+            transition: color 0.2s ease, padding-left 0.2s ease;
+        }
+
+        .toc a:hover {
+            color: var(--accent-dark);
+            padding-left: 6px;
+        }
+
+        /* ===== ЦИТАТА ===== */
+        .quote {
+            font-style: italic;
+            color: var(--text-light);
+            padding: 16px 24px;
+            margin: 20px 0;
+            border-left: 3px solid var(--coffee-5);
+            background: rgba(255, 248, 240, 0.6);
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05em;
+        }
+
+        /* ===== СЕТКА ===== */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 18px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 20px 16px 60px;
+            }
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.4em; }
+            .card { padding: 20px; }
+            .sidebar-note { margin-left: 20px; }
+        }
+
+        /* ===== АНИМАЦИИ ===== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* ===== ПРОКРУТКА ===== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--coffee-2);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--coffee-5);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--coffee-6);
+        }
+
+        /* ===== ПЕЧАТЬ ===== */
+        @media print {
+            body { background: #fff; }
+            .card { box-shadow: none; border: 1px solid #ccc; }
+            .sidebar-note { break-inside: avoid; }
+            h2 { break-after: avoid; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ===== ЗАГОЛОВОК ===== -->
+    <h1>Биология: сводный конспект</h1>
+    <p style="text-align:center; color: var(--text-muted); font-style: italic; font-size: 1.05em; margin-bottom: 40px;">
+        Расчётные задачи · Биохимия · Экология · Генетика · Цитология · Иммунология · Физиология · Паразитология · Генная инженерия
+    </p>
+
+    <!-- ===== ОГЛАВЛЕНИЕ ===== -->
+    <div class="toc">
+        <h3>📜 Содержание</h3>
+        <ol>
+            <li><a href="#section-ecology">Математическое моделирование в экологии</a></li>
+            <li><a href="#section-biochem">Биохимия: органические молекулы, ферменты, метаболизм</a></li>
+            <li><a href="#section-genetics">Генетика и популяционные расчёты</a></li>
+            <li><a href="#section-chem">Химические расчёты и генетическая связь веществ</a></li>
+            <li><a href="#section-immunopath">Иммунопатологии: иммунодефициты, аллергии, аутоиммунные заболевания</a></li>
+            <li><a href="#section-cytology">Цитология и мембранный транспорт</a></li>
+            <li><a href="#section-transport">Транспортные системы клетки: насосы, переносчики, каналы</a></li>
+            <li><a href="#section-cytoskeleton">Цитоскелет и механизмы мембранного транспорта</a></li>
+            <li><a href="#section-sporozoa">Биология споровиков и жизненный цикл малярийного плазмодия</a></li>
+            <li><a href="#section-muscle">Физиология мышц и сердечно-сосудистой системы</a></li>
+            <li><a href="#section-muscle-skeleton">Физиология скелетных мышц: структура и сокращение</a></li>
+            <li><a href="#section-coagulation">Системы коагуляции, иммунитета и воспаления</a></li>
+            <li><a href="#section-plasmids">Структура и функции плазмид в генной инженерии</a></li>
+        </ol>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 1: ЭКОЛОГИЯ -->
+    <!-- ============================================================ -->
+    <h2 id="section-ecology">I. Математическое моделирование в экологии</h2>
+
+    <div class="card">
+        <h3>Зависимость развития насекомых от температуры</h3>
+        <p>Скорость развития экзотермных организмов часто описывается <strong>гиперболической зависимостью</strong>. В общем виде уравнение связи времени развития (<em>y</em> в днях) и температуры (<em>x</em> в °C) выглядит следующим образом:</p>
+
+        <div class="formula">y = c + a / (x + b)</div>
+
+        <p>где <em>a</em>, <em>b</em>, <em>c</em> — специфические коэффициенты. В упрощённых задачах, если параметр <em>b</em> = 0, формула принимает вид:</p>
+
+        <div class="formula">y = c + a / x</div>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> чем жарче, тем быстрее развивается насекомое. Но есть «порог» — минимальная температура, ниже которой развитие вообще не идёт. Формула показывает, что время развития обратно пропорционально температуре (с поправкой на этот порог).
+        </div>
+
+        <h4>Алгоритм решения через системы уравнений</h4>
+        <ol>
+            <li>Составление системы на основе известных пар значений (температура / дней).</li>
+            <li>Вычитание уравнений друг из друга для исключения свободного члена <em>c</em>.</li>
+            <li>Решение линейного уравнения относительно переменной <em>a</em> (константа суммы температур).</li>
+            <li>Подстановка <em>a</em> в любое из исходных уравнений для нахождения <em>c</em>.</li>
+            <li>Использование полученной функции для прогнозирования времени развития при любой температуре или поиска точки пересечения графиков двух видов (приравнивание функций <em>y₁(x) = y₂(x)</em>).</li>
+        </ol>
+
+        <div class="highlight-box">
+            <h4>📝 Пример расчёта для вида B</h4>
+            <p><strong>Дано:</strong> при 20 °C — 18.5 дней, при 30 °C — 11.5 дней.</p>
+            <p><strong>Решение:</strong></p>
+            <p>Система уравнений:</p>
+            <div class="formula" style="font-size:1em;">18.5 = c + a/20 &nbsp;&nbsp;&nbsp; 11.5 = c + a/30</div>
+            <p>Вычитаем: 18.5 − 11.5 = a/20 − a/30 → 7 = a(3−2)/60 = a/60 → <strong>a = 420</strong>.</p>
+            <p>Подставляем: 18.5 = c + 420/20 = c + 21 → <strong>c = −2.5</strong>.</p>
+            <p><strong>Итоговая функция:</strong> y = −2.5 + 420/x.</p>
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 2: БИОХИМИЯ -->
+    <!-- ============================================================ -->
+    <h2 id="section-biochem">II. Биохимия: органические молекулы, ферменты и метаболические пути</h2>
+
+    <div class="card card-sage">
+        <h3>Химическое строение биомолекул</h3>
+
+        <h4>Ароматические и алифатические системы</h4>
+        <p><strong>Ароматические аминокислоты</strong> (тирозин, триптофан, фенилаланин) обладают плоской структурой благодаря сопряжённой системе π-орбиталей. Эта система формирует скопления электронной плотности над и под плоскостью цикла, что обеспечивает высокую химическую стабильность.</p>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> ароматические кольца — это «плоские» и очень прочные структуры. Представьте себе бублик, который лежит на столе — он плоский. Электроны в нём «размазаны» по кругу, что делает его устойчивым. Фенилаланин отличается от тирозина отсутствием гидроксильной группы (−OH).
+        </div>
+
+        <p><strong>Алифатические радикалы</strong> бывают линейными, разветвлёнными или циклическими, могут содержать двойные или тройные связи. Циклические алифатические структуры <em>не являются плоскими</em> из-за тетраэрической формы атома углерода. Исключение — холестерин (почти плоский, но это частный случай).</p>
+
+        <h4>Важные функциональные группы</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Группа</th><th>Где встречается</th><th>Особенности</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Карбонильная (C=O)</td><td>Углеводы (альдегидная у альдоз, кетогруппа у кетоз)</td><td>Определяет восстанавливающие свойства</td></tr>
+                    <tr><td>Карбоксильная (−COOH)</td><td>Жирные кислоты, аминокислоты</td><td>Диссоциирует, может отдавать H⁺</td></tr>
+                    <tr><td>Гидроксильная (−OH)</td><td>Спирты, углеводы</td><td>Нуклеофил, но не диссоциирует</td></tr>
+                    <tr><td>Аминогруппа (−NH₂)</td><td>Аминокислоты (α-положение), лизин, аргинин</td><td>Протонируется при физиологических pH</td></tr>
+                    <tr><td>Амидная (−CONH₂)</td><td>Глутамин, аспарагин, пептидная связь</td><td>Не заряжена, полярна</td></tr>
+                    <tr><td>Сульфгидрильная (−SH)</td><td>Цистеин, кофермент А</td><td>Образует дисульфидные связи</td></tr>
+                    <tr><td>Фосфоангидридная</td><td>АТФ</td><td>Богата энергией</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Оптическая изомерия</h4>
+        <p>Оптическая активность определяется наличием <strong>асимметрического атома углерода</strong> (четыре разных заместителя). Изомеры-зеркальные отражения называются <strong>энантиомерами</strong>. Если у углерода есть два одинаковых заместителя — он ахирален.</p>
+
+        <div class="sidebar-note-rose sidebar-note">
+            <strong>Важно:</strong> биологические системы крайне чувствительны к оптической конфигурации. Один изомер лекарства может быть терапевтически активным, а другой — бесполезным или даже токсичным. Аналогично: один изомер сахара сладкий, другой — безвкусный.
+        </div>
+    </div>
+
+    <div class="card card-mint">
+        <h3>Ферменты и кофакторы</h3>
+
+        <h4>Классификация ферментов</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Класс</th><th>Функция</th><th>Примеры</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Оксидоредуктазы</td><td>Окислительно-восстановительные реакции</td><td>Алкогольдегидрогеназа, сукцинатдегидрогеназа (кофакторы: НАД, НАДФ, ФАД)</td></tr>
+                    <tr><td>Трансферазы</td><td>Перенос химических групп</td><td>Киназы (перенос фосфата), трансаминазы (аминогруппы), метилтрансферазы</td></tr>
+                    <tr><td>Гидролазы</td><td>Расщепление связей с водой</td><td>Пептидазы, липазы, амилазы</td></tr>
+                    <tr><td>Лиазы</td><td>Расщепление без воды</td><td>Декарбоксилазы</td></tr>
+                    <tr><td>Изомеразы</td><td>Изменение структуры</td><td>Фосфоглюкозоизомераза</td></tr>
+                    <tr><td>Лигазы</td><td>Сшивание молекул (с АТФ)</td><td>ДНК-лигаза</td></tr>
+                    <tr><td>Транслоказы</td><td>Перенос через мембраны</td><td>ABC-транспортеры</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> ферменты — это «рабочие руки» клетки. Каждый класс делает свою работу: одни отнимают электроны (оксидоредуктазы), другие переносят группы (трансферазы), третьи режут связи водой (гидролазы).
+        </div>
+    </div>
+
+    <div class="card card-peach">
+        <h3>Классы биомолекул</h3>
+
+        <h4>Углеводы</h4>
+        <ul>
+            <li><strong>Моносахариды:</strong> рибоза, глюкоза, манноза, галактоза (альдозы), фруктоза (кетоза). В природе преобладают D-изомеры.</li>
+            <li><strong>Дисахариды:</strong> восстанавливающие (мальтоза, лактоза, целлобиоза — имеют свободный аномерный атом углерода) и невосстанавливающие (сахароза, трегалоза — аномерные атомы вовлечены в гликозидную связь).</li>
+            <li><strong>Полисахариды:</strong> запасные (крахмал — амилоза + амилопектин, гликоген) и структурные (целлюлоза — β-глюкоза, хитин).</li>
+        </ul>
+
+        <div class="sidebar-note-wide sidebar-note">
+            <strong>Как отличить восстанавливающий дисахарид от невосстанавливающего?</strong> Если у дисахарида есть свободный аномерный углерод (тот, который связан с двумя атомами кислорода), он может восстанавливать другие соединения. В сахарозе и трегалозе оба аномерных углерода заняты в гликозидной связи — поэтому они невосстанавливающие.
+        </div>
+
+        <h4>Липиды</h4>
+        <ul>
+            <li><strong>Архейные липиды:</strong> простые эфирные связи + изопреноидные блоки → устойчи
+<h4>Липиды (продолжение)</h4>
+        <ul>
+            <li><strong>Сфинголипиды:</strong> основа — сфингозин (аминоспирт), к которому через амидную связь присоединена жирная кислота. Важные компоненты мембран эукариот.</li>
+            <li><strong>Стероиды:</strong> тетрациклическое ядро (циклопентанпергидрофенантрен). Холестерин у животных — предшественник жёлчных кислот, половых гормонов, кортизола и витамина D3.</li>
+        </ul>
+
+        <h4>Нуклеотиды и коферменты</h4>
+        <p><strong>Нуклеотид</strong> состоит из азотистого основания, сахара (пентозы) и фосфата. Без фосфата — <strong>нуклеозид</strong>.</p>
+        <ul>
+            <li><strong>Пуриновые основания</strong> (аденин, гуанин) — два цикла.</li>
+            <li><strong>Пиримидиновые</strong> (цитозин, тимин, урацил) — один цикл.</li>
+        </ul>
+        <p><strong>Коферменты:</strong> НАД содержит АМФ и никотинамидрибозидфосфат; ФАД включает АМФ и изоаллоксазин, присоединённый через рибитол.</p>
+    </div>
+
+    <div class="card card-lavender">
+        <h3>Метаболизм углеводов</h3>
+
+        <h4>Гликолиз и брожение</h4>
+        <p><strong>Гликолиз</strong> — универсальный путь расщепления глюкозы до двух молекул пирувата. Включает подготовительную стадию (затрата 2 АТФ) и возвратную (выработка 4 АТФ и 2 НАДН). Суммарный выход: <strong>2 АТФ и 2 НАДН</strong>.</p>
+
+        <div class="scheme">
+            <div class="scheme-title">Схема гликолиза</div>
+            <div class="scheme-row">
+                <div class="scheme-box">Глюкоза</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">Глюкозо-6-фосфат</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">Фруктозо-1,6-бисфосфат</div>
+            </div>
+            <div class="scheme-row">
+                <div class="scheme-arrow">↓</div>
+                <div class="scheme-box-green scheme-box">2 × Пируват</div>
+            </div>
+            <p style="margin-top:16px; color: var(--text-muted); font-size:0.9em;">Подготовительная стадия: −2 АТФ. Возвратная стадия: +4 АТФ, +2 НАДН.</p>
+        </div>
+
+        <p>В анаэробных условиях происходит <strong>брожение</strong> для регенерации НАД⁺:</p>
+        <ul>
+            <li><strong>Молочнокислое:</strong> пируват → лактат (фермент лактатдегидрогеназа).</li>
+            <li><strong>Спиртовое (дрожжи):</strong> пируват → ацетальдегид → этанол.</li>
+        </ul>
+
+        <h4>Пентозофосфатный путь</h4>
+        <p>Окислительная фаза: глюкозо-6-фосфат → рибулозо-5-фосфат + <strong>НАДФН</strong>. НАДФН — донор электронов для биосинтеза липидов и антиоксидантной защиты.</p>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> гликолиз — это «быстрая энергия» без кислорода. Пентозофосфатный путь — это «строительный магазин»: он даёт клетке НАДФН (для синтеза жиров) и рибозу (для нуклеотидов).
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 3: ГЕНЕТИКА -->
+    <!-- ============================================================ -->
+    <h2 id="section-genetics">III. Генетика и популяционные расчёты</h2>
+
+    <div class="card">
+        <h3>Закон Харди-Вайнберга и сцепление с полом</h3>
+        <p>При расчёте частот аллелей в малой выборке используется классическое определение вероятности: отношение числа копий конкретного аллеля к общему числу аллелей в локусе.</p>
+
+        <div class="definition-box">
+            <strong>Важно:</strong> у самок дрозофил (XX) две X-хромосомы, у самцов (XY) — одна. При расчёте частоты X-сцепленного гена общее количество аллелей в паре особей равно <strong>3</strong>.
+        </div>
+
+        <p><strong>Пример:</strong> самка белоглазая (X<sup>w</sup>X<sup>w</sup>), самец дикого типа (X<sup>+</sup>Y).</p>
+        <ul>
+            <li>Частота аллеля w = 2/3.</li>
+            <li>Частота аллеля + = 1/3.</li>
+        </ul>
+        <p>Для аутосомных генов (например, цвет тела B/b) общее количество аллелей всегда чётное (4 аллеля на 2 особи).</p>
+
+        <h4>Коэффициент инбридинга (F)</h4>
+        <p><strong>Коэффициент инбридинга</strong> — вероятность того, что две аллели в одном локусе у индивида идентичны по происхождению (от одного предка).</p>
+
+        <h4>Метод расчёта по инбредным петлям</h4>
+        <ol>
+            <li>Выделяется путь от потомка к общему предку и обратно через другого родителя.</li>
+            <li>Считается количество особей в петле (<em>n</em>), включая родителей, но исключая самого потомка.</li>
+            <li>Формула для одной петли: <strong>F = (1/2)<sup>n</sup></strong>.</li>
+            <li>Если общих предков несколько, вероятности по каждой петле суммируются.</li>
+        </ol>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Тип скрещивания</th><th>F</th><th>Пояснение</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Самооплодотворение</td><td>1/2</td><td>Одна петля n = 1</td></tr>
+                    <tr><td>Сибсы (родные брат и сестра)</td><td>1/4</td><td>Две петли по n = 3 → 1/8 + 1/8</td></tr>
+                    <tr><td>Двоюродные сибсы</td><td>1/16</td><td>Четыре петли по n = 4 → 4 × 1/16? (уточнение: две петли по 1/32? Стандартно 1/16)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sidebar-note-rose sidebar-note">
+            <strong>Осторожно:</strong> в задачах на Харди-Вайнберга всегда проверяйте, не задан ли фенотип одного из родителей — это ограничивает пространство возможных генотипов и меняет вероятности.
+        </div>
+
+        <div class="highlight-box">
+            <h4>📝 Пример: резус-конфликт</h4>
+            <p><strong>Условие:</strong> мать Rh⁻ (генотип dd), отец Rh⁺. Частота аллеля d = 0.25. Найти вероятность рождения Rh⁺-ребёнка, учитывая фенотип отца.</p>
+            <p><strong>Решение:</strong></p>
+            <p>Частота d = q = 0.25 → частота D = p = 0.75.</p>
+            <p>Генотипы в популяции: DD = p² = 0.5625, Dd = 2pq = 0.375, dd = q² = 0.0625.</p>
+            <p>Отец Rh⁺, значит его генотип DD или Dd (исключаем dd).</p>
+            <p>Вероятность, что отец Dd при условии Rh⁺: P(Dd | Rh⁺) = 0.375 / (0.5625 + 0.375) = 0.375 / 0.9375 = 0.4.</p>
+            <p>Вероятность, что отец DD: 0.6.</p>
+            <p>Если отец DD × мать dd → все дети Dd (Rh⁺) — вероятность 1.</p>
+            <p>Если отец Dd × мать dd → 50% Dd (Rh⁺), 50% dd (Rh⁻).</p>
+            <p>Итоговая вероятность Rh⁺-ребёнка: 0.6 × 1 + 0.4 × 0.5 = 0.6 + 0.2 = <strong>0.8 (80%)</strong>.</p>
+        </div>
+    </div>
+
+    <div class="card card-sage">
+        <h3>Марковские модели в геномике</h3>
+
+        <h4>Скрытые марковские модели (HMM) для CpG-островков</h4>
+        <p>Модель описывает состояния (островок / не островок) и вероятности переходов между ними. Для вычисления вероятности того, что последовательность длиной <em>L</em> принадлежит конкретному состоянию, необходимо:</p>
+        <ol>
+            <li>Перемножить вероятности встречаемости каждого нуклеотида в данном состоянии.</li>
+            <li>Перемножить вероятности сохранения состояния при каждом переходе (всего <em>L−1</em> переходов). Если вероятность остаться в состоянии <em>P</em>, то в формулу пойдёт <em>P<sup>L−1</sup></em>.</li>
+        </ol>
+
+        <h4>Двоичный логарифм (Log-odds score)</h4>
+        <p>Для сравнения гипотез часто используют отношение вероятностей в виде двоичного логарифма. Если на калькуляторе нет функции log₂, используется формула перехода:</p>
+        <div class="formula">log₂(x) = ln(x) / ln(2) &nbsp;&nbsp; или &nbsp;&nbsp; log₂(x) = lg(x) / lg(2)</div>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> log-odds — это «счётчик очков» в пользу одной гипотезы против другой. Если он положительный — последовательность скорее островок, если отрицательный — скорее не островок.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 4: ХИМИЯ -->
+    <!-- ============================================================ -->
+    <h2 id="section-chem">IV. Химические расчёты и генетическая связь неорганических веществ</h2>
+
+    <div class="card card-peach">
+        <h3>Анализ цепочек химических превращений</h3>
+
+        <h4>Реакции соединений лития и фосфора</h4>
+        <p>При получении фосфата лития (Li₃PO₄) из хлорида лития (LiCl) следует использовать <strong>соль</strong>, а не фосфорную кислоту (H₃PO₄). Это обусловлено тем, что H₃PO₄ — слабая кислота и не способна вытеснить остаток сильной соляной кислоты из её соли.</p>
+
+        <div class="sidebar-note-rose sidebar-note">
+            <strong>Типичная ошибка:</strong> использование H₃PO₄ вместо растворимого фосфата (например, Na₃PO₄) лишает баллов за задание, где требуется полное ионное уравнение.
+        </div>
+
+        <h4>Превращения соединений цинка</h4>
+        <ul>
+            <li>Нитрат цинка Zn(NO₃)₂ при нагревании разлагается с образованием ZnO, NO₂ и O₂.</li>
+            <li>Получение цинкатов (например, Na₂ZnO₂) требует взаимодействия ZnO с сильной щёлочью (NaOH) или щелочным оксидом (Na₂O) при сплавлении.</li>
+            <li>Гидроксид цинка Zn(OH)₂ — амфотерное основание, растворяется в сильных кислотах (HCl) с образованием ZnCl₂.</li>
+        </ul>
+
+        <h4>Специфические реакции фосфора</h4>
+        <ul>
+            <li>Фосфор с концентрированной HNO₃ окисляется до H₃PO₄ (степень окисления +5), выделяется бурый газ NO₂.</li>
+            <li>Фосфор не реагирует с водородом напрямую из-за близости электроотрицательностей.</li>
+            <li>Реакция фосфора со щелочами — диспропорционирование: P → PH₃ (−3) и гипофосфиты/фосфиты (+1/+3).</li>
+        </ul>
+    </div>
+
+    <div class="card card-mint">
+        <h3>Расчётные задачи (задания 18 и 19)</h3>
+
+        <h4>Основные понятия и формулы</h4>
+        <ul>
+            <li><strong>Относительная атомная масса (A<sub>r</sub>):</strong> из таблицы Менделеева, все элементы округляются до целых, кроме Cl (A<sub>r</sub> = 35.5).</li>
+            <li><strong>Относительная молекулярная масса (M<sub>r</sub>):</strong> сумма атомных масс всех элементов с учётом индексов.</li>
+            <li><strong>Количество вещества (n):</strong> n = m / M, для газов при н.у. n = V / V<sub>m</sub>, где V<sub>m</sub> = 22.4 л/моль.</li>
+        </ul>
+
+        <h4>Алгоритм нахождения массовой доли элемента (ω)</h4>
+        <ol>
+            <li>Вычисляется молекулярная масса всего вещества (M<sub>total</sub>).</li>
+            <li>Определяется суммарная масса искомого элемента в формуле (A<sub>r</sub> × индекс).</li>
+            <li>Значение вычисляется по формуле:</li>
+        </ol>
+        <div class="formula">ω = (A<sub>r</sub>(элемента) × k) / M<sub>r</sub>(вещества) × 100%</div>
+        <p>где <em>k</em> — число атомов данного элемента в молекуле. Результат округляется согласно условию задачи (чаще до десятых).</p>
+
+        <div class="highlight-box">
+            <h4>📝 Пример: массовая доля кислорода в серной кислоте H₂SO₄</h4>
+            <p>M<sub>r</sub>(H₂SO₄) = 1×2 + 32 + 16×4 = 2 + 32 + 64 = 98.</p>
+            <p>Масса кислорода: 16 × 4 = 64.</p>
+            <p>ω(O) = 64 / 98 × 100% ≈ 65.3%.</p>
+        </div>
+
+        <div class="sidebar-note">
+            <strong>Совет:</strong> промежуточные вычисления лучше проводить с большей точностью, а финальный ответ записывать строго по требованию (до десятых/целых). В бланки ответов цифры и запятые вносятся в отдельные клетки без указания единиц измерения.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 5: ИММУНОПАТОЛОГИИ -->
+    <!-- ============================================================ -->
+    <h2 id="section-immunopath">V. Иммунопатологии: иммунодефициты, аллергии и аутоиммунные заболевания</h2>
+
+    <div class="card card-rose">
+        <h3>Иммунодефицитные состояния</h3>
+        <p>Иммунодефициты — состояния, при которых иммунный ответ на патоген неадекватно низкий или полностью отсутствует. Организм крайне уязвим для инфекций.</p>
+
+        <h4>Первичные (врождённые) иммунодефициты</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Синдром</th><th>Механизм</th><th>Последствия</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Синдром Ди Джорджи</td><td>Нарушение развития тимуса → дефицит Т-лимфоцитов</td><td>Страдает клеточный иммунитет: Т-киллеры не уничтожают инфицированные клетки, Т-хелперы не координируют ответ</td></tr>
+                    <tr><td>Синдром Брутона</td><td>Генетическое нарушение В-клеточного звена</td><td>Невозможность синтеза антител → рецидивирующие бактериальные инфекции</td></tr>
+                    <tr><td>Гипер-IgM-синдром</td><td>Нарушено «переключение» классов антител</td><td>Нет перехода IgM → IgG, снижена эффективность на поздних стадиях воспаления</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Вторичные (приобретённые) иммунодефициты</h4>
+        <ul>
+            <li><strong>ВИЧ-инфекция:</strong> вирус поражает Т-хелперы, разрушая систему координации иммунитета.</li>
+            <li>Лучевая болезнь, последствия химиотерапии, тяжёлые хронические стрессы.</li>
+        </ul>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> первичные иммунодефициты — «поломка с рождения» (генетическая). Вторичные — «поломка приобретённая» (вирус, облучение, стресс).
+        </div>
+    </div>
+
+    <div class="card card-lavender">
+        <h3>Гиперчувствительность и аллергические реакции</h3>
+        <p><strong>Аллергия</strong> — качественное изменение иммунного ответа, когда система избыточно реагирует на безвредные антигены (аллергены).</p>
+
+        <h4>Реакция гиперчувствительности I типа (немедленная)</h4>
+        <div class="scheme">
+            <div class="scheme-title">Два этапа аллергической реакции</div>
+            <div class="scheme-row">
+                <div class="scheme-box scheme-box-rose">Сенсибилизация</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">IgE на тучных клетках</div>
+            </div>
+            <div class="scheme-row">
+                <div class="scheme-arrow">↓</div>
+                <div class="scheme-box scheme-box-green">Повторный контакт</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-rose">Дегрануляция → гистамин</div>
+            </div>
+        </div>
+
+        <p><strong>Сенсибилизация:</strong> при первом контакте макрофаги презентируют антиген Т-клеткам, которые стимулируют В-клетки к синтезу IgE. Антитела прикрепляются к тучным клеткам.</p>
+        <p><strong>Реагирование:</strong> повторное попадание аллергена → связывание с IgE → дегрануляция тучных клеток → выброс гистамина и брадикинина → отёк, спазм бронхов, расширение сосудов.</p>
+
+        <p>При хроническом течении развивается <strong>бронхиальная астма</strong> (бронхоконстрикция, вязкая слизь, инфильтрация эозинофилами и нейтрофилами). В тяжёлых случаях — <strong>анафилактический шок</strong>.</p>
+
+        <div class="sidebar-note-rose sidebar-note">
+            <strong>Клиническая связь:</strong> антигистаминные препараты блокируют H1-рецепторы гистамина, снижая симптомы аллергии. НПВС уменьшают воспаление. Специфическая иммунотерапия («прививки от аллергии») постепенно переключает ответ с IgE на IgG.
+        </div>
+    </div>
+
+    <div class="card card-sage">
+        <h3>Аутоиммунные заболевания</h3>
+        <p>Возникают из-за сбоя механизмов <strong>иммунологической толерантности</strong>, когда система атакует собственные здоровые ткани.</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Заболевание</th><th>Мишень атаки</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Ревматоидный артрит</td><td>Суставы</td></tr>
+                    <tr><td>Системная красная волчанка</td><td>Соединительная ткань и сосуды</td></tr>
+                    <tr><td>Рассеянный склероз</td><td>Миелиновая оболочка нервных волокон</td></tr>
+                    <tr><td>Сахарный диабет I типа</td><td>Островковые клетки поджелудочной железы (инсулин)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Причины поломки толерантности</h4>
+        <ul>
+            <li><strong>Молекулярная мимикрия:</strong> антигены инфекций (например, стрептококка) похожи на белки человека → иммунитет атакует свои ткани.</li>
+            <li><strong>Нарушение метаболизма:</strong> изменение структуры собственных белков (гипергликозилирование) делает их «чужими».</li>
+            <li><strong>Генетическая предрасположенность:</strong> дисбаланс Т-хелперов 1-го и 2-го типов.</li>
+        </ul>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> аутоиммунитет — это «дружественный огонь». Иммунная система ошибается и атакует свои же клетки, принимая их за врагов.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 6: ЦИТОЛОГИЯ И МЕМБРАННЫЙ ТРАНСПОРТ -->
+    <!-- ============================================================ -->
+    <h2 id="section-cytology">VI. Цитология и мембранный транспорт: структура, компоненты и механизмы</h2>
+
+    <div class="card card-mint">
+        <h3>Химический состав и структура мембран</h3>
+        <p>Основой любой биологической мембраны является <strong>липидный бислой</strong>, состоящий преимущественно из фосфолипидов. Термин «бислой» подчёркивает наличие двух слоёв молекул, обращённых друг к другу гидрофобными участками.</p>
+
+        <h4>Фосфолипиды и жирные кислоты</h4>
+        <p>Молекулы фосфолипидов (глицерофосфолипидов) имеют <strong>амфифильную природу</strong>: гидрофильная «головка» (глицерин, фосфат, функциональная группа) и два гидрофобных «хвоста» (остатки жирных кислот).</p>
+
+        <div class="grid-2">
+            <div class="definition-box">
+                <strong>Насыщенные жирные кислоты</strong><br>
+                Прямая форма, все связи углерода заняты. Плотная упаковка.
+            </div>
+            <div class="definition-box">
+                <strong>Ненасыщенные жирные кислоты</strong><br>
+                Двойные связи → изгиб молекулы. Препятствуют плотной упаковке.
+            </div>
+        </div>
+
+        <p><strong>Текучесть мембраны:</strong> чем больше ненасыщенных жиров с изгибами, тем более рыхлой и текучей становится мембрана.</p>
+
+        <h4>Сфинголипиды и стеролы</h4>
+        <ul>
+            <li><strong>Сфинголипиды:</strong> основа — сфингозин, прочнее удерживает гидрофобную цепь. Часто содержат насыщенные кислоты → повышенная прочность. Организмы в условиях высоких температур (гейзеры) увеличивают долю сфинголипидов.</li>
+            <li><strong>Стеролы (холестерин у эукариот):</strong> встраиваются между хвостами липидов, стабилизируют мембрану, делают её менее проницаемой для мелких молекул, предотвращают кристаллизацию при охлаждении. Избыток холестерина → бляшки → инфаркты и инсульты.</li>
+        </ul>
+
+        <h4>Термодинамика и самосборка</h4>
+        <p>Мембраны формируются самопроизвольно благодаря <strong>гидрофобному эффекту</strong>.</p>
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> гидрофобные хвосты «прячутся» от воды, собираясь вместе. При этом молекулы воды, которые были вынуждены упорядочиваться вокруг хвостов, освобождаются → беспорядок (энтропия) растёт → система энергетически выгодна.
+        </div>
+
+        <h4>Мембранные рафты и барьерная функция</h4>
+        <p><strong>Рафты</strong> — плотно упакованные островки мембраны, обогащённые сфинголипидами, холестерином и насыщенными жирными кислотами. Служат платформами для межклеточных контактов и работы рецепторов.</p>
+
+        <p><strong>Избирательная проницаемость:</strong></p>
+        <ul>
+            <li>Легко проходят: мелкие гидрофобные молекулы и газы (O₂, CO₂) — простая диффузия.</li>
+            <li>С трудом: вода (осмос). Ионы и крупные полярные молекулы (глюкоза, белки) через липидный слой не просачиваются.</li>
+        </ul>
+    </div>
+
+    <div class="card card-peach">
+        <h3>Классификация мембранных белков</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Тип белка</th><th>Расположение</th><th>Особенности</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Интегральные</td><td>Пронизывают мембрану насквозь</td><td>Внутри бислоя — гидрофобные аминокислоты. Транспортные белки — «β-бочонок», рецепторы — 7 α-спиралей (G-белки)</td></tr>
+                    <tr><td>Полуинтегральные</td><td>Не пронизывают полностью</td><td>Удерживаются гидрофобными «якорями» (изопреноидные, миристиловые хвосты)</td></tr>
+                    <tr><td>Периферические</td><td>На поверхности мембраны</td><td>Связаны с интегральными белками или липидами</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card card-rose">
+        <h3>Механизмы транспорта</h3>
+
+        <h4>Пассивный транспорт и осмос</h4>
+        <p><strong>Осмос</strong> — движение воды в сторону раствора с более высокой концентрацией солей.</p>
+        <ul>
+            <li><strong>Гипертонический раствор</strong> (много соли снаружи) → эритроциты сморщиваются.</li>
+            <li><strong>Гипотонический раствор</strong> (мало соли снаружи) → вода заходит в клетку → <strong>гемолиз</strong> (разрыв мембраны). В растительных клетках уравновешивается клеточной стенкой (плазмолиз/деплазмолиз).</li>
+        </ul>
+
+        <h4>Активный транспорт (насосы)</h4>
+        <p>Насосы осуществляют транспорт <strong>против градиента концентрации</strong> с затратой энергии.</p>
+        <ul>
+            <li><strong>АТФ-зависимые насосы:</strong> Na⁺/K⁺-АТФаза выкачивает 3 Na⁺ наружу и закачивает 2 K⁺ внутрь → отрицательный заряд внутри клетки.</li>
+            <li><strong>Светозависимые насосы:</strong> бактериородопсин (энергия света для перекачки протонов).</li>
+            <li><strong>Окислительно-восстановительные насосы:</strong> в электрон-транспортных цепях митохондрий и хлоропластов.</li>
+        </ul>
+
+        <h4>Переносчики и каналы</h4>
+        <p>В отличие от насосов, каналы и переносчики работают <strong>по градиенту концентрации</strong> (пассивно), используя энергию, ранее запасённую насосами.</p>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> насос — это «водяной насос», который тащит воду в гору за счёт электричества (АТФ). Каналы и переносчики — это «шлюзы», которые открываются, и вода течёт под горку сама.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 7: ТРАНСПОРТНЫЕ СИСТЕМЫ -->
+    <!-- ============================================================ -->
+    <h2 id="section-transport">VII. Транспортные системы клетки: насосы, переносчики и каналы</h2>
+
+    <div class="card card-sage">
+        <h3>АТФ-зависимые системы</h3>
+
+        <h4>Определение АТФазы</h4>
+        <p><strong>АТФаза</strong> — интегральный белок или фермент, использующий энергию гидролиза АТФ. Насосы на гидролизе АТФ составляют большую часть транспортных белков.</p>
+        <p>Альтернативные источники энергии:</p>
+        <ul>
+            <li>Энергия света (фотосинтетические и светочувствительные системы).</li>
+            <li>Энергия окислительно-восстановительных (редокс) реакций.</li>
+        </ul>
+
+        <h4>ABC-транспортеры и их значение</h4>
+        <div class="highlight-box">
+            <h4>🔬 Медицинское значение ABC-транспортеров</h4>
+            <p><strong>В онкологии:</strong> ABC-транспортеры связаны с устойчивостью опухолей к лечению. В «поломанных» опухолевых клетках количество этих белков в мембране значительно увеличивается. Они захватывают молекулы препаратов и активно вытесняют их наружу → химиотерапия становится неэффективной.</p>
+            <p><strong>В микробиологии:</strong> у бактерий ABC-транспортеры выкачивают антибиотики из цитоплазмы → один из основных механизмов антибиотикорезистентности.</p>
+        </div>
+    </div>
+
+    <div class="card card-mint">
+        <h3>Первичный и вторичный транспорт</h3>
+
+        <h4>Первичный транспорт</h4>
+        <p>Осуществляется АТФ-зависимыми насосами. Задача — создание и поддержание градиентов концентрации ионов и молекул (требует затрат АТФ).</p>
+
+        <h4>Вторичный транспорт (переносчики)</h4>
+        <p>Не потребляют АТФ напрямую. Используют градиент, созданный насосами.</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Тип переносчика</th><th>Направление</th><th>Пример</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Унипортер</td><td>Одна молекула</td><td>GLUT4 (глюкоза по градиенту)</td></tr>
+                    <tr><td>Симпортер</td><td>Две молекулы в одном направлении</td><td>Na⁺/глюкоза: Na⁺ идёт по градиенту, «тащит» глюкозу против градиента</td></tr>
+                    <tr><td>Антипортер</td><td>Две молекулы в противоположных направлениях</td><td>Na⁺/Ca²⁺-обменник: Na⁺ входит, Ca²⁺ выходит</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Ионные каналы</h4>
+        <ul>
+            <li>Интегральные белки, образующие сквозной просвет (пору).</li>
+            <li>Наименьшая селективность среди транспортных белков (не нужно связывать каждую молекулу).</li>
+            <li>Три функциональных состояния: «активен» (открыт), «закрыт», «неактивен».</li>
+        </ul>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> каналы — это «турникеты» в метро. Они быстро пропускают пассажиров (ионы), но не очень разборчивы. Переносчики — это «контролёры», которые каждому проверяют билет (связывают молекулу).
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 8: ЦИТОСКЕЛЕТ -->
+    <!-- ============================================================ -->
+    <h2 id="section-cytoskeleton">VIII. Цитоскелет и механизмы мембранного транспорта</h2>
+
+    <div class="card card-lavender">
+        <h3>Функционирование и регуляция мембранных каналов</h3>
+
+        <h4>Состояния закрытого канала</h4>
+        <p>Один из участков канала (обращённый в цитоплазму или во внеклеточную среду) физически перекрывает проход. Переход между открытым и закрытым состоянием обусловлен изменением конформации белка в ответ на сигналы.</p>
+
+        <h4>Механизм инактивации</h4>
+        <p>Специальный структурный элемент («затычка») физически блокирует канал с одного из концов. Канал может формально оставаться в открытой конформации, но транспорт не осуществляется.</p>
+
+        <h4>Типы каналов</h4>
+        <ul>
+            <li><strong>Потенциал-зависимые:</strong> характерны для нейронов и мышечных клеток, реагируют на изменение электрического потенциала.</li>
+            <li><strong>Энергетические аспекты:</strong> одни — АТФазы (тратят АТФ напрямую), другие — работают за счёт градиентов.</li>
+            <li><strong>Избирательность:</strong> пропускают только определённые ионы или молекулы.</li>
+        </ul>
+    </div>
+
+    <div class="card card-peach">
+        <h3>Элементы цитоскелета</h3>
+        <p>Цитоскелет — динамическая сеть белковых нитей, пронизывающая цитоплазму. Три основных компонента:</p>
+
+        <h4>1. Промежуточные филаменты</h4>
+        <ul>
+            <li><strong>Состав:</strong> фибриллярные белки — ламины, кератины, виментины.</li>
+            <li><strong>Локализация:</strong> ламины формируют ядерную ламину; кератины и виментины — по всей клетке, участвуют в межклеточных контактах.</li>
+            <li><strong>Функция:</strong> защита от растяжения и разрывов, упорядочивание клеток в ткани.</li>
+            <li><strong>Прочность:</strong> напоминают прочные канаты, проходящие через клетку.</li>
+        </ul>
+
+        <h4>2. Микротрубочки</h4>
+        <ul>
+            <li><strong>Строение:</strong> полые цилиндры из α- и β-тубулина (димеры). γ-тубулин участвует в инициации сборки.</li>
+            <li><strong>ЦОМТ:</strong> центросома с двумя центриолями под углом 90°.</li>
+            <li><strong>Транспортные белки:</strong> кинезины (к плюс-концу), динеины (к минус-концу).</li>
+            <li><strong>Специализированные структуры:</strong> аксонема жгутиков и ресничек (9×2+2), центриоли (9×3).</li>
+            <li><strong>Клеточное деление:</strong> веретено деления в профазе, расхождение хромосом в анафазе.</li>
+        </ul>
+
+        <h4>3. Микрофиламенты (актиновые филаменты)</h4>
+        <ul>
+            <li><strong>Строение:</strong> глобулярный белок актин (собран из отдельных глобул, как «бусы»).</li>
+            <li><strong>Динамичность:</strong> постоянная полимеризация и деполимеризация → изменение формы клетки, образование псевдоподий и филоподий.</li>
+            <li><strong>Локализация:</strong> кортикальный слой под плазматической мембраной.</li>
+            <li><strong>Функции:</strong> сокращение мышц (с миозином), микроворсинки кишечника, цитокинез (сократительное кольцо).</li>
+        </ul>
+
+        <div class="scheme">
+            <div class="scheme-title">Сравнение элементов цитоскелета</div>
+            <div class="scheme-row">
+                <div class="scheme-box scheme-box-rose">Промежуточные филаменты<br><small>Статика, прочность</small></div>
+                <div class="scheme-box scheme-box-blue">Микротрубочки<br><small>Транспорт, деление</small></div>
+                <div class="scheme-box scheme-box-green">Микрофиламенты<br><small>Движение, форма</small></div>
+            </div>
+        </div>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> промежуточные филаменты — это «арматура» клетки. Микротрубочки — это «рельсы» для транспорта. Микрофиламенты — это «мышцы» клетки, позволяющие ей двигаться и менять форму.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 9: СПОРОВИКИ -->
+    <!-- ============================================================ -->
+    <h2 id="section-sporozoa">IX. Биология споровиков и жизненный цикл малярийного плазмодия</h2>
+
+    <div class="card card-sage">
+        <h3>Стратегии выживания и адаптации</h3>
+        <p>Паразиты используют различные пути развития, выбирая между краткими схемами и сложными циклами с участием промежуточных хозяев.</p>
+
+        <h4>Иммунная маскировка</h4>
+        <div class="highlight-box">
+            <h4>🛡️ Как паразит становится «невидимым»</h4>
+            <p><strong>Маскировка в эритроцитах:</strong> внутри эритроцитов паразиты защищены от обнаружения, так как в этих клетках <strong>отсутствует главный комплекс гистосовместимости (MHC)</strong>. Отсутствие MHC делает паразита практически невидимым для иммунной системы.</p>
+            <p>Кроме того, эритроциты отличаются отсутствием развитого гликокаликса («лысые» клетки) → паразиту не нужны специальные приспособления для преодоления этого барьера (например, коноид).</p>
+        </div>
+
+        <h4>Прямая передача</h4>
+        <p>Кровяные споровики демонстрируют продвинутую черту — <strong>отсутствие стадии выхода во внешнюю среду</strong>. Переход осуществляется напрямую из одного хозяина в другого через переносчика. Это минимизирует риски гибели во внешней среде.</p>
+    </div>
+
+    <div class="card card-rose">
+        <h3>Жизненный цикл малярийного плазмодия</h3>
+
+        <div class="scheme">
+            <div class="scheme-title">Цикл развития Plasmodium</div>
+            <div class="scheme-row">
+                <div class="scheme-box scheme-box-rose">Комар кусает человека</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">Спорозоиты в кровь</div>
+            </div>
+            <div class="scheme-row">
+                <div class="scheme-arrow">↓</div>
+                <div class="scheme-box scheme-box-green">Печень (мерогония)</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">Мерозоиты в эритроциты</div>
+            </div>
+            <div class="scheme-row">
+                <div class="scheme-arrow">↓</div>
+                <div class="scheme-box scheme-box-rose">Синхронный выход → лихорадка</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">Гамонты → комар</div>
+            </div>
+        </div>
+
+        <ol>
+            <li><strong>Инфицирование промежуточного хозяина:</strong> комар (окончательный хозяин) впрыскивает гаплоидных спорозоитов в кровь человека.</li>
+            <li><strong>Тканевая фаза (печёночная):</strong> спорозоиты внедряются в гепатоциты → мерогония.</li>
+            <li><strong>Эритроцитарная фаза:</strong> мерозоиты заражают эритроциты → многократное бесполое размножение.</li>
+            <li><strong>Проявление симптомов:</strong> синхронный выход мерозоитов → иммунная реакция → скачок температуры и лихорадка.</li>
+            <li><strong>Завершение цикла:</strong> часть мерозоитов → гамонты → попадают в комара → оплодотворение → диплоидная зигота (оокинета) → новое поколение гаплоидных спорозоитов → слюнные железы комара.</li>
+        </ol>
+
+        <div class="sidebar-note-rose sidebar-note">
+            <strong>Клиническая связь:</strong> лихорадка при малярии напрямую связана с синхронностью биологических процессов внутри кровеносной системы хозяина. Когда мерозоиты одновременно выходят из эритроцитов, иммунная система реагирует на массовый выброс чужеродных агентов.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 10: ФИЗИОЛОГИЯ МЫШЦ -->
+    <!-- ============================================================ -->
+    <h2 id="section-muscle">X. Физиология мышц и сердечно-сосудистой системы</h2>
+
+    <div class="card card-mint">
+        <h3>Механика мышечного сокращения</h3>
+        <p>Скелетная мышца реагирует на электрические стимулы разной частоты.</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Явление</th><th>Описание</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Одиночное сокращение (twitch)</td><td>Ответ на единичный сигнал</td></tr>
+                    <tr><td>Лестничный тренд (Treppe)</td><td>Постепенное нарастание силы при ритмической стимуляции (например, 5 Гц) из-за накопления Ca²⁺ в цитоплазме</td></tr>
+                    <tr><td>Суммация и тетанус</td><td>При высокой частоте стимулы накладываются друг на друга. Тетанус бывает зубчатым (неполное расслабление) и гладким (слитное сокращение)</td></tr>
+                    <tr><td>Оптимум</td><td>Частота, при которой достигается максимальный ответ</td></tr>
+                    <tr><td>Пессимум</td><td>Чрезмерно высокая частота → мышца перестаёт отвечать адекватным сокращением (утомление)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Типы сокращений</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Тип</th><th>Описание</th><th>Особенности</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Изометрическое</td><td>Длина не меняется, растёт напряжение</td><td>Попытка сдвинуть непосильный груз</td></tr>
+                    <tr><td>Изотоническое</td><td>Мышца укорачивается при постоянном напряжении</td><td>В чистом виде редко, обычно в эксперименте</td></tr>
+                    <tr><td>Смешанное (ауксотоническое)</td><td>Одновременное изменение длины и напряжения</td><td>Естественные движения (подъём свободного веса)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Фазы одиночного сокращения</h4>
+        <ol>
+            <li><strong>Латентный период:</strong> от сигнала до начала сокращения (передача по T-трубочкам, выход Ca²⁺ из СПР).</li>
+            <li><strong>Фаза сокращения:</strong> достижение пика силы.</li>
+            <li><strong>Фаза релаксации:</strong> расслабление за счёт откачки Ca²⁺ обратно в ретикулум.</li>
+        </ol>
+    </div>
+
+    <div class="card card-lavender">
+        <h3>Генетика и типы мышечных волокон</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Параметр</th><th>Тип 1 (Медленные)</th><th>Тип 2 (Быстрые)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Цвет</td><td>Красные (много миоглобина)</td><td>Белые (мало миоглобина)</td></tr>
+                    <tr><td>Метаболизм</td><td>Аэробный (окислительный)</td><td>Анаэробный (гликолитический)</td></tr>
+                    <tr><td>Выносливость</td><td>Высокая, работают долго</td><td>Низкая, быстро утомляются</td></tr>
+                    <tr><td>Скорость</td><td>Медленное сокращение</td><td>Быстрое и мощное</td></tr>
+                    <tr><td>Сфера</td><td>Марафоны, поддержание позы</td><td>Спринт, тяжёлая атлетика</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Патологии нервно-мышечной передачи</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Заболевание</th><th>Уровень поражения</th><th>Механизм</th><th>ЭМГ</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Myasthenia Gravis</td><td>Постсинаптическая мембрана</td><td>Антитела блокируют nAChR</td><td>Декремент амплитуды M-ответа</td></tr>
+                    <tr><td>Синдром Ламберта-Итона</td><td>Пресинаптическая мембрана</td><td>Антитела атакуют Ca²⁺-каналы</td><td>Изначально низкая амплитуда, растёт при частой стимуляции</td></tr>
+                    <tr><td>Ботулизм</td><td>Пресинаптический выброс</td><td>Токсин разрушает SNAP-комплекс → нет выброса ацетилхолина</td><td>Вялый паралич</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> миастения — «поломка приёмника» на мышце (постсинаптически). Ламберт-Итон — «поломка розетки» (пресинаптически). Ботулизм — «перерезан провод» (нет выброса медиатора).
+        </div>
+    </div>
+
+    <div class="card card-rose">
+        <h3>Сердечно-сосудистая система: гипертрофия и адаптация</h3>
+        <ul>
+            <li><strong>Силовые тренировки:</strong> утолщение стенки миокарда при сохранении объёма камер (концентрическая гипертрофия).</li>
+            <li><strong>Тренировки на выносливость:</strong> увеличение камер (дилатация) и умеренное изменение стенок.</li>
+            <li><strong>Патологическая гипертрофия:</strong> при гипертензии — критическое утолщение стенок из-за необходимости преодолевать высокое давление в аорте.</li>
+        </ul>
+
+        <h4>Молекулярная регуляция</h4>
+        <p>Путь mTOR (блокируется рапамицином) отвечает за рост мышц. В сердце при хроническом стрессе активируется каскад кальциневрина:</p>
+        <ol>
+            <li>Рост уровня Ca²⁺ в клетке.</li>
+            <li>Активация кальциневрина (фосфатаза).</li>
+            <li>Дефосфорилирование фактора NFAT → идёт в ядро → запускает гены гипертрофии.</li>
+        </ol>
+        <p>Экспрессия натрийуретических пептидов (ANP в предсердиях, BNP в желудочках) → вазодилатация и диурез → попытка снизить давление.</p>
+
+        <div class="sidebar-note-wide sidebar-note">
+            <strong>Клиническое значение:</strong> BNP — маркер сердечной недостаточности. Его уровень в крови повышается при перегрузке сердца, что помогает диагностировать патологию.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 11: ФИЗИОЛОГИЯ СКЕЛЕТНЫХ МЫШЦ -->
+    <!-- ============================================================ -->
+    <h2 id="section-muscle-skeleton">XI. Физиология скелетных мышц: структура, механизм сокращения и методы исследования</h2>
+
+    <div class="card card-peach">
+        <h3>Анатомическое устройство мышцы</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Оболочка</th><th>Объект изоляции</th><th>Особенности</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Эндомизий</td><td>Отдельные мышечные пучки (миоциты)</td><td>Внутренний слой</td></tr>
+                    <tr><td>Перимизий</td><td>Более крупные группы пучков</td><td>Средний слой</td></tr>
+                    <tr><td>Эпимизий</td><td>Вся мышца целиком</td><td>Наружная оболочка, переходит в сухожилие</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Молекулярное строение саркомера</h4>
+        <p><strong>Саркомер</strong> — участок между двумя Z-дисками. Поперечная исчерченность обусловлена чередованием филаментов.</p>
+        <ul>
+            <li><strong>Тонкие филаменты:</strong> глобулярный актин → фибриллярные цепи.</li>
+            <li><strong>Толстые филаменты:</strong> двухголовый миозин, фиксируется M-линией.</li>
+            <li><strong>Регуляторный комплекс:</strong> тропомиозин (закрывает сайты связывания) + три тропонина.</li>
+        </ul>
+
+        <div class="sidebar-note-wide sidebar-note">
+            <strong>Клиническое значение:</strong> сердечный тропонин — специфический маркер повреждения миокарда (инфаркта). При разрушении клеток он попадает в кровоток.
+        </div>
+    </div>
+
+    <div class="card card-sage">
+        <h3>Механизм мышечного сокращения</h3>
+        <p>Сокращение происходит по принципу <strong>скользящих нитей</strong>: актиновые и миозиновые филаменты не укорачиваются, а скользят друг относительно друга.</p>
+
+        <div class="scheme">
+            <div class="scheme-title">Электромеханическое сопряжение</div>
+            <div class="scheme-row">
+                <div class="scheme-box">Сигнал по сарколемме</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">T-трубочки</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-green">СПР выпускает Ca²⁺</div>
+            </div>
+            <div class="scheme-row">
+                <div class="scheme-arrow">↓</div>
+                <div class="scheme-box">Ca²⁺ + тропонин C</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-rose">Сдвиг тропомиозина</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">Миозин + актин</div>
+            </div>
+        </div>
+
+        <ol>
+            <li>Возбуждение по сарколемме → T-трубочки.</li>
+            <li>Сигнал на СПР → выброс Ca²⁺ в цитоплазму.</li>
+            <li>Ca²⁺ связывается с тропонином C → сдвиг тропомиозина → открытие сайтов на актине.</li>
+            <li>Головки миозина присоединяются к актину (без АТФ).</li>
+            <li>Присоединение и гидролиз АТФ → «гребок» → продвижение нитей.</li>
+        </ol>
+
+        <p><strong>Расслабление</strong> требует активной откачки Ca²⁺ обратно в ретикулум. Дефицит АТФ или избыток Ca²⁺ → ригидность (трупное окоченение).</p>
+    </div>
+
+    <div class="card card-mint">
+        <h3>Функциональная диагностика</h3>
+        <ul>
+            <li><strong>Динамометрия:</strong> измерение силы кистевого хвата. Сила разгибателей ног обычно выше, чем сгибателей (противостояние гравитации).</li>
+            <li><strong>Электромиография (ЭМГ):</strong> запись электрической активности мышц. Оценивает амплитуду сигнала и скорость ответа (M-волну).</li>
+        </ul>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 12: КОАГУЛЯЦИЯ И ИММУНИТЕТ -->
+    <!-- ============================================================ -->
+    <h2 id="section-coagulation">XII. Системы коагуляции, иммунитета и воспаления</h2>
+
+    <div class="card card-rose">
+        <h3>Система свёртывания крови (гемостаз)</h3>
+
+        <h4>Активация тромбоцитов и образование белого тромба</h4>
+        <p>Тромбоциты активируются при повреждении сосудистой стенки и контакте с подлежащими тканями:</p>
+        <ul>
+            <li>Взаимодействие с базальной мембраной (отрицательный заряд) → активация.</li>
+            <li>Контакт с клетками, отличными от эндотелия и клеток крови.</li>
+            <li>Активированные тромбоциты слипаются → <strong>белый тромб</strong> (тромбоцитарная пробка).</li>
+        </ul>
+
+        <h4>Формирование фибринового сгустка</h4>
+        <p>Белый тромб укрепляется сетью фибрина. Факторы свёртывания — плазменные белки (11 штук, нумерация 1–12, факторы 4 и 6 отсутствуют).</p>
+
+        <h4>Пути активации свёртывания</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Путь</th><th>Описание</th><th>Особенности</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Внешний</td><td>Контакт с компонентами вне сосудистого русла (тканевой фактор)</td><td>Медленное, но надёжное свёртывание. Работает у всех, включая больных гемофилией</td></tr>
+                    <tr><td>Внутренний</td><td>Контакт с коллагеном и отрицательно заряженными поверхностями</td><td>Множество положительных обратных связей. Не работает при гемофилии. После запуска — очень быстрое свёртывание</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Регуляция свёртывания</h4>
+        <p>Три системы в балансе:</p>
+        <ol>
+            <li><strong>Свёртывающая</strong> — образование тромбов.</li>
+            <li><strong>Антисвёртывающая</strong> — препятствует бесконтрольному росту тромбов.</li>
+            <li><strong>Фибринолиз</strong> — расщепление сформированных тромбов.</li>
+        </ol>
+        <p>Нарушение баланса: усиление → тромбозы; ослабление → кровотечения.</p>
+    </div>
+
+    <div class="card card-lavender">
+        <h3>Лейкоциты и иммунная система</h3>
+
+        <h4>Воспаление как часть иммунной реакции</h4>
+        <p>Пять признаков воспаления:</p>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Признак</th><th>Механизм</th><th>Значение</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Жар</td><td>Усиление кровотока, расширение сосудов</td><td>Снижает скорость распространения патогенов</td></tr>
+                    <tr><td>Покраснение</td><td>Усиление кровотока</td><td>Приток иммунных клеток и питательных веществ</td></tr>
+                    <tr><td>Отёк</td><td>Увеличение проницаемости сосудов → плазма и клетки в очаг</td><td>Доставка факторов защиты</td></tr>
+                    <tr><td>Боль</td><td>Давление отёка + медиаторы (простагландины, брадикинин)</td><td>Сигнал о повреждении, защитный механизм</td></tr>
+                    <tr><td>Нарушение функции</td><td>Воспалённая ткань не может нормально работать</td><td>Ограничение активности для восстановления</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Типы иммунитета</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Классификация</th><th>Тип</th><th>Характеристика</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td rowspan="2">По механизму</td><td>Клеточный</td><td>Клетка напрямую уничтожает патоген (фагоцитоз, цитотоксичность)</td></tr>
+                    <tr><td>Гуморальный</td><td>Антитела действуют на расстоянии</td></tr>
+                    <tr><td rowspan="2">По происхождению</td><td>Врождённый</td><td>Видовой (генетический), клеточные компоненты (макрофаги)</td></tr>
+                    <tr><td>Приобретённый (адаптивный)</td><td>Лимфоциты, иммунологическая память. Активный (после болезни/вакцины) и пассивный (готовые антитела)</td></tr>
+                    <tr><td rowspan="2">По способу приобретения</td><td>Естественный</td><td>Через болезнь</td></tr>
+                    <tr><td>Искусственный</td><td>Вакцинация (активный) или сыворотка (пассивный)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Основные игроки иммунитета</h4>
+        <ul>
+            <li><strong>Макрофаги:</strong> фагоцитоз, антиген-презентирующая функция (связь врождённого и приобретённого иммунитета).</li>
+            <li><strong>B-лимфоциты:</strong> наивные → плазматические (вырабатывают антитела) → клетки памяти.</li>
+            <li><strong>T-лимфоциты:</strong> T-киллеры (уничтожают инфицированные клетки по MHC I), T-хелперы (координируют), NK-клетки (уничтожают клетки без MHC I).</li>
+        </ul>
+
+        <h4>Классы антител (иммуноглобулинов)</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Класс</th><th>Особенности</th><th>Роль</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>IgM</td><td>Пентамер («звездочка»)</td><td>Первичный ответ, активация комплемента</td></tr>
+                    <tr><td>IgG</td><td>Мономер, самый распространённый в крови</td><td>Вторичный ответ, проникает через плаценту</td></tr>
+                    <tr><td>IgA</td><td>Мономеры, димеры, тримеры</td><td>Местный иммунитет на слизистых</td></tr>
+                    <tr><td>IgE</td><td>Мономер</td><td>Паразитарные инфекции, аллергии (связывание с тучными клетками)</td></tr>
+                    <tr><td>IgD</td><td>Мономер, на мембране B-клеток</td><td>Рецептор для активации B-клеток</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 13: ПЛАЗМИДЫ -->
+    <!-- ============================================================ -->
+    <h2 id="section-plasmids">XIII. Структура и функции плазмид в генной инженерии</h2>
+
+    <div class="card card-mint">
+        <h3>Ключевые элементы плазмиды</h3>
+        <p>Плазмида — тщательно сконструированный вектор, содержащий несколько обязательных функциональных блоков.</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Элемент</th><th>Обозначение</th><th>Функция</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Origin репликации</td><td>ori</td><td>Участок начала репликации, обеспечивает сохранение плазмиды в поколениях</td></tr>
+                    <tr><td>Маркерный ген</td><td>Ген устойчивости к антибиотику</td><td>Селекция трансформированных клеток: только они выживают на среде с антибиотиком</td></tr>
+                    <tr><td>Сайт множественного клонирования</td><td>MCS (полилинкер)</td><td>Множество уникальных сайтов рестрикции для встраивания гена</td></tr>
+                    <tr><td>Промоутер</td><td>Promoter</td><td>Инициирует транскрипцию, определяет интенсивность и условия экспрессии</td></tr>
+                    <tr><td>Сайты связывания праймеров</td><td>Primer Binding Sites</td><td>Для ПЦР-анализа успешности вставки</td></tr>
+                    <tr><td>Вставка</td><td>Insert</td><td>Целевой ген или последовательность</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Детальное рассмотрение элементов</h4>
+        <ul>
+            <li><strong>ori:</strong> выбор влияет на копийность (если продукт токсичен — низкая копийность), совместимость с хозяином, возможность сосуществования нескольких плазмид.</li>
+            <li><strong>Маркерный ген:</strong> после трансформации клетки выращивают на среде с антибиотиком. Выживают только получившие плазмиду.</li>
+            <li><strong>MCS:</strong> располагается сразу после промоутера. Ориентация промоутера указывает направление синтеза РНК → ген нужно встроить в правильной ориентации.</li>
+            <li><strong>Промоутер:</strong> бывает сильным/слабым, конститутивным (постоянная экспрессия) и индуцибельным (в ответ на сигнал).</li>
+        </ul>
+
+        <h4>Проверка успешности вставки</h4>
+        <div class="scheme">
+            <div class="scheme-title">Алгоритм проверки клонирования</div>
+            <div class="scheme-row">
+                <div class="scheme-box">ПЦР с праймерами, фланкирующими MCS</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-green">Сравнение длины продуктов</div>
+            </div>
+            <div class="scheme-row">
+                <div class="scheme-arrow">↓</div>
+                <div class="scheme-box">Гель-электрофорез</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-rose">Плазмида со вставкой длиннее</div>
+            </div>
+        </div>
+
+        <ol>
+            <li>ПЦР с праймерами, связывающимися с участками, окружающими MCS.</li>
+            <li>Без вставки длина продукта = расстояние между сайтами связывания праймеров.</li>
+            <li>Со вставкой продукт длиннее на размер вставки.</li>
+            <li>Гель-электрофорез: сравнение дорожек подтверждает клонирование.</li>
+        </ol>
+
+        <div class="sidebar-note-wide sidebar-note">
+            <strong>Итог:</strong> плазмида — не просто носитель гена, а сложный инструмент. Каждый компонент выполняет специфическую задачу: от репликации до контроля экспрессии. Всегда проверяйте результат клонирования методами ПЦР и гель-электрофореза.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ===== ИТОГОВЫЙ БЛОК ===== -->
+    <div class="card card-peach" style="margin-top: 60px;">
+        <h3 style="text-align:center; border-bottom: none;">🎓 Итоги и рекомендации</h3>
+        <ul>
+            <li>Всегда записывайте краткое условие с указанием единиц измерения (мкл, мл, мг, мкг).</li>
+            <li>В задачах на Харди-Вайнберга проверяйте, не задан ли фенотип одного из родителей.</li>
+            <li>Используйте обыкновенные дроби до финального этапа вычислений, чтобы избежать накопления ошибки округления.</li>
+            <li>При работе с родословными визуализируйте инбредные петли.</li>
+            <li>В химических задачах промежуточные вычисления проводите с большей точностью, финальный ответ — строго по требованию.</li>
+            <li>Помните: мембрана — динамическая структура, а не пассивный барьер.</li>
+            <li>Иммунная система — сложный баланс; избегайте факторов вторичного иммунодефицита.</li>
+        </ul>
+        <p style="text-align:center; margin-top: 24px; color: var(--text-muted); font-style: italic;">
+            ✦ Конец сводного конспекта ✦
+        </p>
+    </div>        <h4>Липиды (продолжение)</h4>
+        <ul>
+            <li><strong>Сфинголипиды:</strong> основа — сфингозин (аминоспирт), к которому через амидную связь присоединена жирная кислота. Важные компоненты мембран эукариот.</li>
+            <li><strong>Стероиды:</strong> тетрациклическое ядро (циклопентанпергидрофенантрен). Холестерин у животных — предшественник жёлчных кислот, половых гормонов, кортизола и витамина D3.</li>
+        </ul>
+
+        <h4>Нуклеотиды и коферменты</h4>
+        <p><strong>Нуклеотид</strong> состоит из азотистого основания, сахара (пентозы) и фосфата. Без фосфата — <strong>нуклеозид</strong>.</p>
+        <ul>
+            <li><strong>Пуриновые основания</strong> (аденин, гуанин) — два цикла.</li>
+            <li><strong>Пиримидиновые</strong> (цитозин, тимин, урацил) — один цикл.</li>
+        </ul>
+        <p><strong>Коферменты:</strong> НАД содержит АМФ и никотинамидрибозидфосфат; ФАД включает АМФ и изоаллоксазин, присоединённый через рибитол.</p>
+    </div>
+
+    <div class="card card-lavender">
+        <h3>Метаболизм углеводов</h3>
+
+        <h4>Гликолиз и брожение</h4>
+        <p><strong>Гликолиз</strong> — универсальный путь расщепления глюкозы до двух молекул пирувата. Включает подготовительную стадию (затрата 2 АТФ) и возвратную (выработка 4 АТФ и 2 НАДН). Суммарный выход: <strong>2 АТФ и 2 НАДН</strong>.</p>
+
+        <div class="scheme">
+            <div class="scheme-title">Схема гликолиза</div>
+            <div class="scheme-row">
+                <div class="scheme-box">Глюкоза</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">Глюкозо-6-фосфат</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">Фруктозо-1,6-бисфосфат</div>
+            </div>
+            <div class="scheme-row">
+                <div class="scheme-arrow">↓</div>
+                <div class="scheme-box-green scheme-box">2 × Пируват</div>
+            </div>
+            <p style="margin-top:16px; color: var(--text-muted); font-size:0.9em;">Подготовительная стадия: −2 АТФ. Возвратная стадия: +4 АТФ, +2 НАДН.</p>
+        </div>
+
+        <p>В анаэробных условиях происходит <strong>брожение</strong> для регенерации НАД⁺:</p>
+        <ul>
+            <li><strong>Молочнокислое:</strong> пируват → лактат (фермент лактатдегидрогеназа).</li>
+            <li><strong>Спиртовое (дрожжи):</strong> пируват → ацетальдегид → этанол.</li>
+        </ul>
+
+        <h4>Пентозофосфатный путь</h4>
+        <p>Окислительная фаза: глюкозо-6-фосфат → рибулозо-5-фосфат + <strong>НАДФН</strong>. НАДФН — донор электронов для биосинтеза липидов и антиоксидантной защиты.</p>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> гликолиз — это «быстрая энергия» без кислорода. Пентозофосфатный путь — это «строительный магазин»: он даёт клетке НАДФН (для синтеза жиров) и рибозу (для нуклеотидов).
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 3: ГЕНЕТИКА -->
+    <!-- ============================================================ -->
+    <h2 id="section-genetics">III. Генетика и популяционные расчёты</h2>
+
+    <div class="card">
+        <h3>Закон Харди-Вайнберга и сцепление с полом</h3>
+        <p>При расчёте частот аллелей в малой выборке используется классическое определение вероятности: отношение числа копий конкретного аллеля к общему числу аллелей в локусе.</p>
+
+        <div class="definition-box">
+            <strong>Важно:</strong> у самок дрозофил (XX) две X-хромосомы, у самцов (XY) — одна. При расчёте частоты X-сцепленного гена общее количество аллелей в паре особей равно <strong>3</strong>.
+        </div>
+
+        <p><strong>Пример:</strong> самка белоглазая (X<sup>w</sup>X<sup>w</sup>), самец дикого типа (X<sup>+</sup>Y).</p>
+        <ul>
+            <li>Частота аллеля w = 2/3.</li>
+            <li>Частота аллеля + = 1/3.</li>
+        </ul>
+        <p>Для аутосомных генов (например, цвет тела B/b) общее количество аллелей всегда чётное (4 аллеля на 2 особи).</p>
+
+        <h4>Коэффициент инбридинга (F)</h4>
+        <p><strong>Коэффициент инбридинга</strong> — вероятность того, что две аллели в одном локусе у индивида идентичны по происхождению (от одного предка).</p>
+
+        <h4>Метод расчёта по инбредным петлям</h4>
+        <ol>
+            <li>Выделяется путь от потомка к общему предку и обратно через другого родителя.</li>
+            <li>Считается количество особей в петле (<em>n</em>), включая родителей, но исключая самого потомка.</li>
+            <li>Формула для одной петли: <strong>F = (1/2)<sup>n</sup></strong>.</li>
+            <li>Если общих предков несколько, вероятности по каждой петле суммируются.</li>
+        </ol>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Тип скрещивания</th><th>F</th><th>Пояснение</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Самооплодотворение</td><td>1/2</td><td>Одна петля n = 1</td></tr>
+                    <tr><td>Сибсы (родные брат и сестра)</td><td>1/4</td><td>Две петли по n = 3 → 1/8 + 1/8</td></tr>
+                    <tr><td>Двоюродные сибсы</td><td>1/16</td><td>Четыре петли по n = 4 → 4 × 1/16? (уточнение: две петли по 1/32? Стандартно 1/16)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sidebar-note-rose sidebar-note">
+            <strong>Осторожно:</strong> в задачах на Харди-Вайнберга всегда проверяйте, не задан ли фенотип одного из родителей — это ограничивает пространство возможных генотипов и меняет вероятности.
+        </div>
+
+        <div class="highlight-box">
+            <h4>📝 Пример: резус-конфликт</h4>
+            <p><strong>Условие:</strong> мать Rh⁻ (генотип dd), отец Rh⁺. Частота аллеля d = 0.25. Найти вероятность рождения Rh⁺-ребёнка, учитывая фенотип отца.</p>
+            <p><strong>Решение:</strong></p>
+            <p>Частота d = q = 0.25 → частота D = p = 0.75.</p>
+            <p>Генотипы в популяции: DD = p² = 0.5625, Dd = 2pq = 0.375, dd = q² = 0.0625.</p>
+            <p>Отец Rh⁺, значит его генотип DD или Dd (исключаем dd).</p>
+            <p>Вероятность, что отец Dd при условии Rh⁺: P(Dd | Rh⁺) = 0.375 / (0.5625 + 0.375) = 0.375 / 0.9375 = 0.4.</p>
+            <p>Вероятность, что отец DD: 0.6.</p>
+            <p>Если отец DD × мать dd → все дети Dd (Rh⁺) — вероятность 1.</p>
+            <p>Если отец Dd × мать dd → 50% Dd (Rh⁺), 50% dd (Rh⁻).</p>
+            <p>Итоговая вероятность Rh⁺-ребёнка: 0.6 × 1 + 0.4 × 0.5 = 0.6 + 0.2 = <strong>0.8 (80%)</strong>.</p>
+        </div>
+    </div>
+
+    <div class="card card-sage">
+        <h3>Марковские модели в геномике</h3>
+
+        <h4>Скрытые марковские модели (HMM) для CpG-островков</h4>
+        <p>Модель описывает состояния (островок / не островок) и вероятности переходов между ними. Для вычисления вероятности того, что последовательность длиной <em>L</em> принадлежит конкретному состоянию, необходимо:</p>
+        <ol>
+            <li>Перемножить вероятности встречаемости каждого нуклеотида в данном состоянии.</li>
+            <li>Перемножить вероятности сохранения состояния при каждом переходе (всего <em>L−1</em> переходов). Если вероятность остаться в состоянии <em>P</em>, то в формулу пойдёт <em>P<sup>L−1</sup></em>.</li>
+        </ol>
+
+        <h4>Двоичный логарифм (Log-odds score)</h4>
+        <p>Для сравнения гипотез часто используют отношение вероятностей в виде двоичного логарифма. Если на калькуляторе нет функции log₂, используется формула перехода:</p>
+        <div class="formula">log₂(x) = ln(x) / ln(2) &nbsp;&nbsp; или &nbsp;&nbsp; log₂(x) = lg(x) / lg(2)</div>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> log-odds — это «счётчик очков» в пользу одной гипотезы против другой. Если он положительный — последовательность скорее островок, если отрицательный — скорее не островок.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 4: ХИМИЯ -->
+    <!-- ============================================================ -->
+    <h2 id="section-chem">IV. Химические расчёты и генетическая связь неорганических веществ</h2>
+
+    <div class="card card-peach">
+        <h3>Анализ цепочек химических превращений</h3>
+
+        <h4>Реакции соединений лития и фосфора</h4>
+        <p>При получении фосфата лития (Li₃PO₄) из хлорида лития (LiCl) следует использовать <strong>соль</strong>, а не фосфорную кислоту (H₃PO₄). Это обусловлено тем, что H₃PO₄ — слабая кислота и не способна вытеснить остаток сильной соляной кислоты из её соли.</p>
+
+        <div class="sidebar-note-rose sidebar-note">
+            <strong>Типичная ошибка:</strong> использование H₃PO₄ вместо растворимого фосфата (например, Na₃PO₄) лишает баллов за задание, где требуется полное ионное уравнение.
+        </div>
+
+        <h4>Превращения соединений цинка</h4>
+        <ul>
+            <li>Нитрат цинка Zn(NO₃)₂ при нагревании разлагается с образованием ZnO, NO₂ и O₂.</li>
+            <li>Получение цинкатов (например, Na₂ZnO₂) требует взаимодействия ZnO с сильной щёлочью (NaOH) или щелочным оксидом (Na₂O) при сплавлении.</li>
+            <li>Гидроксид цинка Zn(OH)₂ — амфотерное основание, растворяется в сильных кислотах (HCl) с образованием ZnCl₂.</li>
+        </ul>
+
+        <h4>Специфические реакции фосфора</h4>
+        <ul>
+            <li>Фосфор с концентрированной HNO₃ окисляется до H₃PO₄ (степень окисления +5), выделяется бурый газ NO₂.</li>
+            <li>Фосфор не реагирует с водородом напрямую из-за близости электроотрицательностей.</li>
+            <li>Реакция фосфора со щелочами — диспропорционирование: P → PH₃ (−3) и гипофосфиты/фосфиты (+1/+3).</li>
+        </ul>
+    </div>
+
+    <div class="card card-mint">
+        <h3>Расчётные задачи (задания 18 и 19)</h3>
+
+        <h4>Основные понятия и формулы</h4>
+        <ul>
+            <li><strong>Относительная атомная масса (A<sub>r</sub>):</strong> из таблицы Менделеева, все элементы округляются до целых, кроме Cl (A<sub>r</sub> = 35.5).</li>
+            <li><strong>Относительная молекулярная масса (M<sub>r</sub>):</strong> сумма атомных масс всех элементов с учётом индексов.</li>
+            <li><strong>Количество вещества (n):</strong> n = m / M, для газов при н.у. n = V / V<sub>m</sub>, где V<sub>m</sub> = 22.4 л/моль.</li>
+        </ul>
+
+        <h4>Алгоритм нахождения массовой доли элемента (ω)</h4>
+        <ol>
+            <li>Вычисляется молекулярная масса всего вещества (M<sub>total</sub>).</li>
+            <li>Определяется суммарная масса искомого элемента в формуле (A<sub>r</sub> × индекс).</li>
+            <li>Значение вычисляется по формуле:</li>
+        </ol>
+        <div class="formula">ω = (A<sub>r</sub>(элемента) × k) / M<sub>r</sub>(вещества) × 100%</div>
+        <p>где <em>k</em> — число атомов данного элемента в молекуле. Результат округляется согласно условию задачи (чаще до десятых).</p>
+
+        <div class="highlight-box">
+            <h4>📝 Пример: массовая доля кислорода в серной кислоте H₂SO₄</h4>
+            <p>M<sub>r</sub>(H₂SO₄) = 1×2 + 32 + 16×4 = 2 + 32 + 64 = 98.</p>
+            <p>Масса кислорода: 16 × 4 = 64.</p>
+            <p>ω(O) = 64 / 98 × 100% ≈ 65.3%.</p>
+        </div>
+
+        <div class="sidebar-note">
+            <strong>Совет:</strong> промежуточные вычисления лучше проводить с большей точностью, а финальный ответ записывать строго по требованию (до десятых/целых). В бланки ответов цифры и запятые вносятся в отдельные клетки без указания единиц измерения.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 5: ИММУНОПАТОЛОГИИ -->
+    <!-- ============================================================ -->
+    <h2 id="section-immunopath">V. Иммунопатологии: иммунодефициты, аллергии и аутоиммунные заболевания</h2>
+
+    <div class="card card-rose">
+        <h3>Иммунодефицитные состояния</h3>
+        <p>Иммунодефициты — состояния, при которых иммунный ответ на патоген неадекватно низкий или полностью отсутствует. Организм крайне уязвим для инфекций.</p>
+
+        <h4>Первичные (врождённые) иммунодефициты</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Синдром</th><th>Механизм</th><th>Последствия</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Синдром Ди Джорджи</td><td>Нарушение развития тимуса → дефицит Т-лимфоцитов</td><td>Страдает клеточный иммунитет: Т-киллеры не уничтожают инфицированные клетки, Т-хелперы не координируют ответ</td></tr>
+                    <tr><td>Синдром Брутона</td><td>Генетическое нарушение В-клеточного звена</td><td>Невозможность синтеза антител → рецидивирующие бактериальные инфекции</td></tr>
+                    <tr><td>Гипер-IgM-синдром</td><td>Нарушено «переключение» классов антител</td><td>Нет перехода IgM → IgG, снижена эффективность на поздних стадиях воспаления</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Вторичные (приобретённые) иммунодефициты</h4>
+        <ul>
+            <li><strong>ВИЧ-инфекция:</strong> вирус поражает Т-хелперы, разрушая систему координации иммунитета.</li>
+            <li>Лучевая болезнь, последствия химиотерапии, тяжёлые хронические стрессы.</li>
+        </ul>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> первичные иммунодефициты — «поломка с рождения» (генетическая). Вторичные — «поломка приобретённая» (вирус, облучение, стресс).
+        </div>
+    </div>
+
+    <div class="card card-lavender">
+        <h3>Гиперчувствительность и аллергические реакции</h3>
+        <p><strong>Аллергия</strong> — качественное изменение иммунного ответа, когда система избыточно реагирует на безвредные антигены (аллергены).</p>
+
+        <h4>Реакция гиперчувствительности I типа (немедленная)</h4>
+        <div class="scheme">
+            <div class="scheme-title">Два этапа аллергической реакции</div>
+            <div class="scheme-row">
+                <div class="scheme-box scheme-box-rose">Сенсибилизация</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">IgE на тучных клетках</div>
+            </div>
+            <div class="scheme-row">
+                <div class="scheme-arrow">↓</div>
+                <div class="scheme-box scheme-box-green">Повторный контакт</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-rose">Дегрануляция → гистамин</div>
+            </div>
+        </div>
+
+        <p><strong>Сенсибилизация:</strong> при первом контакте макрофаги презентируют антиген Т-клеткам, которые стимулируют В-клетки к синтезу IgE. Антитела прикрепляются к тучным клеткам.</p>
+        <p><strong>Реагирование:</strong> повторное попадание аллергена → связывание с IgE → дегрануляция тучных клеток → выброс гистамина и брадикинина → отёк, спазм бронхов, расширение сосудов.</p>
+
+        <p>При хроническом течении развивается <strong>бронхиальная астма</strong> (бронхоконстрикция, вязкая слизь, инфильтрация эозинофилами и нейтрофилами). В тяжёлых случаях — <strong>анафилактический шок</strong>.</p>
+
+        <div class="sidebar-note-rose sidebar-note">
+            <strong>Клиническая связь:</strong> антигистаминные препараты блокируют H1-рецепторы гистамина, снижая симптомы аллергии. НПВС уменьшают воспаление. Специфическая иммунотерапия («прививки от аллергии») постепенно переключает ответ с IgE на IgG.
+        </div>
+    </div>
+
+    <div class="card card-sage">
+        <h3>Аутоиммунные заболевания</h3>
+        <p>Возникают из-за сбоя механизмов <strong>иммунологической толерантности</strong>, когда система атакует собственные здоровые ткани.</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Заболевание</th><th>Мишень атаки</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Ревматоидный артрит</td><td>Суставы</td></tr>
+                    <tr><td>Системная красная волчанка</td><td>Соединительная ткань и сосуды</td></tr>
+                    <tr><td>Рассеянный склероз</td><td>Миелиновая оболочка нервных волокон</td></tr>
+                    <tr><td>Сахарный диабет I типа</td><td>Островковые клетки поджелудочной железы (инсулин)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Причины поломки толерантности</h4>
+        <ul>
+            <li><strong>Молекулярная мимикрия:</strong> антигены инфекций (например, стрептококка) похожи на белки человека → иммунитет атакует свои ткани.</li>
+            <li><strong>Нарушение метаболизма:</strong> изменение структуры собственных белков (гипергликозилирование) делает их «чужими».</li>
+            <li><strong>Генетическая предрасположенность:</strong> дисбаланс Т-хелперов 1-го и 2-го типов.</li>
+        </ul>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> аутоиммунитет — это «дружественный огонь». Иммунная система ошибается и атакует свои же клетки, принимая их за врагов.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 6: ЦИТОЛОГИЯ И МЕМБРАННЫЙ ТРАНСПОРТ -->
+    <!-- ============================================================ -->
+    <h2 id="section-cytology">VI. Цитология и мембранный транспорт: структура, компоненты и механизмы</h2>
+
+    <div class="card card-mint">
+        <h3>Химический состав и структура мембран</h3>
+        <p>Основой любой биологической мембраны является <strong>липидный бислой</strong>, состоящий преимущественно из фосфолипидов. Термин «бислой» подчёркивает наличие двух слоёв молекул, обращённых друг к другу гидрофобными участками.</p>
+
+        <h4>Фосфолипиды и жирные кислоты</h4>
+        <p>Молекулы фосфолипидов (глицерофосфолипидов) имеют <strong>амфифильную природу</strong>: гидрофильная «головка» (глицерин, фосфат, функциональная группа) и два гидрофобных «хвоста» (остатки жирных кислот).</p>
+
+        <div class="grid-2">
+            <div class="definition-box">
+                <strong>Насыщенные жирные кислоты</strong><br>
+                Прямая форма, все связи углерода заняты. Плотная упаковка.
+            </div>
+            <div class="definition-box">
+                <strong>Ненасыщенные жирные кислоты</strong><br>
+                Двойные связи → изгиб молекулы. Препятствуют плотной упаковке.
+            </div>
+        </div>
+
+        <p><strong>Текучесть мембраны:</strong> чем больше ненасыщенных жиров с изгибами, тем более рыхлой и текучей становится мембрана.</p>
+
+        <h4>Сфинголипиды и стеролы</h4>
+        <ul>
+            <li><strong>Сфинголипиды:</strong> основа — сфингозин, прочнее удерживает гидрофобную цепь. Часто содержат насыщенные кислоты → повышенная прочность. Организмы в условиях высоких температур (гейзеры) увеличивают долю сфинголипидов.</li>
+            <li><strong>Стеролы (холестерин у эукариот):</strong> встраиваются между хвостами липидов, стабилизируют мембрану, делают её менее проницаемой для мелких молекул, предотвращают кристаллизацию при охлаждении. Избыток холестерина → бляшки → инфаркты и инсульты.</li>
+        </ul>
+
+        <h4>Термодинамика и самосборка</h4>
+        <p>Мембраны формируются самопроизвольно благодаря <strong>гидрофобному эффекту</strong>.</p>
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> гидрофобные хвосты «прячутся» от воды, собираясь вместе. При этом молекулы воды, которые были вынуждены упорядочиваться вокруг хвостов, освобождаются → беспорядок (энтропия) растёт → система энергетически выгодна.
+        </div>
+
+        <h4>Мембранные рафты и барьерная функция</h4>
+        <p><strong>Рафты</strong> — плотно упакованные островки мембраны, обогащённые сфинголипидами, холестерином и насыщенными жирными кислотами. Служат платформами для межклеточных контактов и работы рецепторов.</p>
+
+        <p><strong>Избирательная проницаемость:</strong></p>
+        <ul>
+            <li>Легко проходят: мелкие гидрофобные молекулы и газы (O₂, CO₂) — простая диффузия.</li>
+            <li>С трудом: вода (осмос). Ионы и крупные полярные молекулы (глюкоза, белки) через липидный слой не просачиваются.</li>
+        </ul>
+    </div>
+
+    <div class="card card-peach">
+        <h3>Классификация мембранных белков</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Тип белка</th><th>Расположение</th><th>Особенности</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Интегральные</td><td>Пронизывают мембрану насквозь</td><td>Внутри бислоя — гидрофобные аминокислоты. Транспортные белки — «β-бочонок», рецепторы — 7 α-спиралей (G-белки)</td></tr>
+                    <tr><td>Полуинтегральные</td><td>Не пронизывают полностью</td><td>Удерживаются гидрофобными «якорями» (изопреноидные, миристиловые хвосты)</td></tr>
+                    <tr><td>Периферические</td><td>На поверхности мембраны</td><td>Связаны с интегральными белками или липидами</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card card-rose">
+        <h3>Механизмы транспорта</h3>
+
+        <h4>Пассивный транспорт и осмос</h4>
+        <p><strong>Осмос</strong> — движение воды в сторону раствора с более высокой концентрацией солей.</p>
+        <ul>
+            <li><strong>Гипертонический раствор</strong> (много соли снаружи) → эритроциты сморщиваются.</li>
+            <li><strong>Гипотонический раствор</strong> (мало соли снаружи) → вода заходит в клетку → <strong>гемолиз</strong> (разрыв мембраны). В растительных клетках уравновешивается клеточной стенкой (плазмолиз/деплазмолиз).</li>
+        </ul>
+
+        <h4>Активный транспорт (насосы)</h4>
+        <p>Насосы осуществляют транспорт <strong>против градиента концентрации</strong> с затратой энергии.</p>
+        <ul>
+            <li><strong>АТФ-зависимые насосы:</strong> Na⁺/K⁺-АТФаза выкачивает 3 Na⁺ наружу и закачивает 2 K⁺ внутрь → отрицательный заряд внутри клетки.</li>
+            <li><strong>Светозависимые насосы:</strong> бактериородопсин (энергия света для перекачки протонов).</li>
+            <li><strong>Окислительно-восстановительные насосы:</strong> в электрон-транспортных цепях митохондрий и хлоропластов.</li>
+        </ul>
+
+        <h4>Переносчики и каналы</h4>
+        <p>В отличие от насосов, каналы и переносчики работают <strong>по градиенту концентрации</strong> (пассивно), используя энергию, ранее запасённую насосами.</p>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> насос — это «водяной насос», который тащит воду в гору за счёт электричества (АТФ). Каналы и переносчики — это «шлюзы», которые открываются, и вода течёт под горку сама.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 7: ТРАНСПОРТНЫЕ СИСТЕМЫ -->
+    <!-- ============================================================ -->
+    <h2 id="section-transport">VII. Транспортные системы клетки: насосы, переносчики и каналы</h2>
+
+    <div class="card card-sage">
+        <h3>АТФ-зависимые системы</h3>
+
+        <h4>Определение АТФазы</h4>
+        <p><strong>АТФаза</strong> — интегральный белок или фермент, использующий энергию гидролиза АТФ. Насосы на гидролизе АТФ составляют большую часть транспортных белков.</p>
+        <p>Альтернативные источники энергии:</p>
+        <ul>
+            <li>Энергия света (фотосинтетические и светочувствительные системы).</li>
+            <li>Энергия окислительно-восстановительных (редокс) реакций.</li>
+        </ul>
+
+        <h4>ABC-транспортеры и их значение</h4>
+        <div class="highlight-box">
+            <h4>🔬 Медицинское значение ABC-транспортеров</h4>
+            <p><strong>В онкологии:</strong> ABC-транспортеры связаны с устойчивостью опухолей к лечению. В «поломанных» опухолевых клетках количество этих белков в мембране значительно увеличивается. Они захватывают молекулы препаратов и активно вытесняют их наружу → химиотерапия становится неэффективной.</p>
+            <p><strong>В микробиологии:</strong> у бактерий ABC-транспортеры выкачивают антибиотики из цитоплазмы → один из основных механизмов антибиотикорезистентности.</p>
+        </div>
+    </div>
+
+    <div class="card card-mint">
+        <h3>Первичный и вторичный транспорт</h3>
+
+        <h4>Первичный транспорт</h4>
+        <p>Осуществляется АТФ-зависимыми насосами. Задача — создание и поддержание градиентов концентрации ионов и молекул (требует затрат АТФ).</p>
+
+        <h4>Вторичный транспорт (переносчики)</h4>
+        <p>Не потребляют АТФ напрямую. Используют градиент, созданный насосами.</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Тип переносчика</th><th>Направление</th><th>Пример</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Унипортер</td><td>Одна молекула</td><td>GLUT4 (глюкоза по градиенту)</td></tr>
+                    <tr><td>Симпортер</td><td>Две молекулы в одном направлении</td><td>Na⁺/глюкоза: Na⁺ идёт по градиенту, «тащит» глюкозу против градиента</td></tr>
+                    <tr><td>Антипортер</td><td>Две молекулы в противоположных направлениях</td><td>Na⁺/Ca²⁺-обменник: Na⁺ входит, Ca²⁺ выходит</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Ионные каналы</h4>
+        <ul>
+            <li>Интегральные белки, образующие сквозной просвет (пору).</li>
+            <li>Наименьшая селективность среди транспортных белков (не нужно связывать каждую молекулу).</li>
+            <li>Три функциональных состояния: «активен» (открыт), «закрыт», «неактивен».</li>
+        </ul>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> каналы — это «турникеты» в метро. Они быстро пропускают пассажиров (ионы), но не очень разборчивы. Переносчики — это «контролёры», которые каждому проверяют билет (связывают молекулу).
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 8: ЦИТОСКЕЛЕТ -->
+    <!-- ============================================================ -->
+    <h2 id="section-cytoskeleton">VIII. Цитоскелет и механизмы мембранного транспорта</h2>
+
+    <div class="card card-lavender">
+        <h3>Функционирование и регуляция мембранных каналов</h3>
+
+        <h4>Состояния закрытого канала</h4>
+        <p>Один из участков канала (обращённый в цитоплазму или во внеклеточную среду) физически перекрывает проход. Переход между открытым и закрытым состоянием обусловлен изменением конформации белка в ответ на сигналы.</p>
+
+        <h4>Механизм инактивации</h4>
+        <p>Специальный структурный элемент («затычка») физически блокирует канал с одного из концов. Канал может формально оставаться в открытой конформации, но транспорт не осуществляется.</p>
+
+        <h4>Типы каналов</h4>
+        <ul>
+            <li><strong>Потенциал-зависимые:</strong> характерны для нейронов и мышечных клеток, реагируют на изменение электрического потенциала.</li>
+            <li><strong>Энергетические аспекты:</strong> одни — АТФазы (тратят АТФ напрямую), другие — работают за счёт градиентов.</li>
+            <li><strong>Избирательность:</strong> пропускают только определённые ионы или молекулы.</li>
+        </ul>
+    </div>
+
+    <div class="card card-peach">
+        <h3>Элементы цитоскелета</h3>
+        <p>Цитоскелет — динамическая сеть белковых нитей, пронизывающая цитоплазму. Три основных компонента:</p>
+
+        <h4>1. Промежуточные филаменты</h4>
+        <ul>
+            <li><strong>Состав:</strong> фибриллярные белки — ламины, кератины, виментины.</li>
+            <li><strong>Локализация:</strong> ламины формируют ядерную ламину; кератины и виментины — по всей клетке, участвуют в межклеточных контактах.</li>
+            <li><strong>Функция:</strong> защита от растяжения и разрывов, упорядочивание клеток в ткани.</li>
+            <li><strong>Прочность:</strong> напоминают прочные канаты, проходящие через клетку.</li>
+        </ul>
+
+        <h4>2. Микротрубочки</h4>
+        <ul>
+            <li><strong>Строение:</strong> полые цилиндры из α- и β-тубулина (димеры). γ-тубулин участвует в инициации сборки.</li>
+            <li><strong>ЦОМТ:</strong> центросома с двумя центриолями под углом 90°.</li>
+            <li><strong>Транспортные белки:</strong> кинезины (к плюс-концу), динеины (к минус-концу).</li>
+            <li><strong>Специализированные структуры:</strong> аксонема жгутиков и ресничек (9×2+2), центриоли (9×3).</li>
+            <li><strong>Клеточное деление:</strong> веретено деления в профазе, расхождение хромосом в анафазе.</li>
+        </ul>
+
+        <h4>3. Микрофиламенты (актиновые филаменты)</h4>
+        <ul>
+            <li><strong>Строение:</strong> глобулярный белок актин (собран из отдельных глобул, как «бусы»).</li>
+            <li><strong>Динамичность:</strong> постоянная полимеризация и деполимеризация → изменение формы клетки, образование псевдоподий и филоподий.</li>
+            <li><strong>Локализация:</strong> кортикальный слой под плазматической мембраной.</li>
+            <li><strong>Функции:</strong> сокращение мышц (с миозином), микроворсинки кишечника, цитокинез (сократительное кольцо).</li>
+        </ul>
+
+        <div class="scheme">
+            <div class="scheme-title">Сравнение элементов цитоскелета</div>
+            <div class="scheme-row">
+                <div class="scheme-box scheme-box-rose">Промежуточные филаменты<br><small>Статика, прочность</small></div>
+                <div class="scheme-box scheme-box-blue">Микротрубочки<br><small>Транспорт, деление</small></div>
+                <div class="scheme-box scheme-box-green">Микрофиламенты<br><small>Движение, форма</small></div>
+            </div>
+        </div>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> промежуточные филаменты — это «арматура» клетки. Микротрубочки — это «рельсы» для транспорта. Микрофиламенты — это «мышцы» клетки, позволяющие ей двигаться и менять форму.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 9: СПОРОВИКИ -->
+    <!-- ============================================================ -->
+    <h2 id="section-sporozoa">IX. Биология споровиков и жизненный цикл малярийного плазмодия</h2>
+
+    <div class="card card-sage">
+        <h3>Стратегии выживания и адаптации</h3>
+        <p>Паразиты используют различные пути развития, выбирая между краткими схемами и сложными циклами с участием промежуточных хозяев.</p>
+
+        <h4>Иммунная маскировка</h4>
+        <div class="highlight-box">
+            <h4>🛡️ Как паразит становится «невидимым»</h4>
+            <p><strong>Маскировка в эритроцитах:</strong> внутри эритроцитов паразиты защищены от обнаружения, так как в этих клетках <strong>отсутствует главный комплекс гистосовместимости (MHC)</strong>. Отсутствие MHC делает паразита практически невидимым для иммунной системы.</p>
+            <p>Кроме того, эритроциты отличаются отсутствием развитого гликокаликса («лысые» клетки) → паразиту не нужны специальные приспособления для преодоления этого барьера (например, коноид).</p>
+        </div>
+
+        <h4>Прямая передача</h4>
+        <p>Кровяные споровики демонстрируют продвинутую черту — <strong>отсутствие стадии выхода во внешнюю среду</strong>. Переход осуществляется напрямую из одного хозяина в другого через переносчика. Это минимизирует риски гибели во внешней среде.</p>
+    </div>
+
+    <div class="card card-rose">
+        <h3>Жизненный цикл малярийного плазмодия</h3>
+
+        <div class="scheme">
+            <div class="scheme-title">Цикл развития Plasmodium</div>
+            <div class="scheme-row">
+                <div class="scheme-box scheme-box-rose">Комар кусает человека</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">Спорозоиты в кровь</div>
+            </div>
+            <div class="scheme-row">
+                <div class="scheme-arrow">↓</div>
+                <div class="scheme-box scheme-box-green">Печень (мерогония)</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">Мерозоиты в эритроциты</div>
+            </div>
+            <div class="scheme-row">
+                <div class="scheme-arrow">↓</div>
+                <div class="scheme-box scheme-box-rose">Синхронный выход → лихорадка</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">Гамонты → комар</div>
+            </div>
+        </div>
+
+        <ol>
+            <li><strong>Инфицирование промежуточного хозяина:</strong> комар (окончательный хозяин) впрыскивает гаплоидных спорозоитов в кровь человека.</li>
+            <li><strong>Тканевая фаза (печёночная):</strong> спорозоиты внедряются в гепатоциты → мерогония.</li>
+            <li><strong>Эритроцитарная фаза:</strong> мерозоиты заражают эритроциты → многократное бесполое размножение.</li>
+            <li><strong>Проявление симптомов:</strong> синхронный выход мерозоитов → иммунная реакция → скачок температуры и лихорадка.</li>
+            <li><strong>Завершение цикла:</strong> часть мерозоитов → гамонты → попадают в комара → оплодотворение → диплоидная зигота (оокинета) → новое поколение гаплоидных спорозоитов → слюнные железы комара.</li>
+        </ol>
+
+        <div class="sidebar-note-rose sidebar-note">
+            <strong>Клиническая связь:</strong> лихорадка при малярии напрямую связана с синхронностью биологических процессов внутри кровеносной системы хозяина. Когда мерозоиты одновременно выходят из эритроцитов, иммунная система реагирует на массовый выброс чужеродных агентов.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 10: ФИЗИОЛОГИЯ МЫШЦ -->
+    <!-- ============================================================ -->
+    <h2 id="section-muscle">X. Физиология мышц и сердечно-сосудистой системы</h2>
+
+    <div class="card card-mint">
+        <h3>Механика мышечного сокращения</h3>
+        <p>Скелетная мышца реагирует на электрические стимулы разной частоты.</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Явление</th><th>Описание</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Одиночное сокращение (twitch)</td><td>Ответ на единичный сигнал</td></tr>
+                    <tr><td>Лестничный тренд (Treppe)</td><td>Постепенное нарастание силы при ритмической стимуляции (например, 5 Гц) из-за накопления Ca²⁺ в цитоплазме</td></tr>
+                    <tr><td>Суммация и тетанус</td><td>При высокой частоте стимулы накладываются друг на друга. Тетанус бывает зубчатым (неполное расслабление) и гладким (слитное сокращение)</td></tr>
+                    <tr><td>Оптимум</td><td>Частота, при которой достигается максимальный ответ</td></tr>
+                    <tr><td>Пессимум</td><td>Чрезмерно высокая частота → мышца перестаёт отвечать адекватным сокращением (утомление)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Типы сокращений</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Тип</th><th>Описание</th><th>Особенности</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Изометрическое</td><td>Длина не меняется, растёт напряжение</td><td>Попытка сдвинуть непосильный груз</td></tr>
+                    <tr><td>Изотоническое</td><td>Мышца укорачивается при постоянном напряжении</td><td>В чистом виде редко, обычно в эксперименте</td></tr>
+                    <tr><td>Смешанное (ауксотоническое)</td><td>Одновременное изменение длины и напряжения</td><td>Естественные движения (подъём свободного веса)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Фазы одиночного сокращения</h4>
+        <ol>
+            <li><strong>Латентный период:</strong> от сигнала до начала сокращения (передача по T-трубочкам, выход Ca²⁺ из СПР).</li>
+            <li><strong>Фаза сокращения:</strong> достижение пика силы.</li>
+            <li><strong>Фаза релаксации:</strong> расслабление за счёт откачки Ca²⁺ обратно в ретикулум.</li>
+        </ol>
+    </div>
+
+    <div class="card card-lavender">
+        <h3>Генетика и типы мышечных волокон</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Параметр</th><th>Тип 1 (Медленные)</th><th>Тип 2 (Быстрые)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Цвет</td><td>Красные (много миоглобина)</td><td>Белые (мало миоглобина)</td></tr>
+                    <tr><td>Метаболизм</td><td>Аэробный (окислительный)</td><td>Анаэробный (гликолитический)</td></tr>
+                    <tr><td>Выносливость</td><td>Высокая, работают долго</td><td>Низкая, быстро утомляются</td></tr>
+                    <tr><td>Скорость</td><td>Медленное сокращение</td><td>Быстрое и мощное</td></tr>
+                    <tr><td>Сфера</td><td>Марафоны, поддержание позы</td><td>Спринт, тяжёлая атлетика</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Патологии нервно-мышечной передачи</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Заболевание</th><th>Уровень поражения</th><th>Механизм</th><th>ЭМГ</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Myasthenia Gravis</td><td>Постсинаптическая мембрана</td><td>Антитела блокируют nAChR</td><td>Декремент амплитуды M-ответа</td></tr>
+                    <tr><td>Синдром Ламберта-Итона</td><td>Пресинаптическая мембрана</td><td>Антитела атакуют Ca²⁺-каналы</td><td>Изначально низкая амплитуда, растёт при частой стимуляции</td></tr>
+                    <tr><td>Ботулизм</td><td>Пресинаптический выброс</td><td>Токсин разрушает SNAP-комплекс → нет выброса ацетилхолина</td><td>Вялый паралич</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> миастения — «поломка приёмника» на мышце (постсинаптически). Ламберт-Итон — «поломка розетки» (пресинаптически). Ботулизм — «перерезан провод» (нет выброса медиатора).
+        </div>
+    </div>
+
+    <div class="card card-rose">
+        <h3>Сердечно-сосудистая система: гипертрофия и адаптация</h3>
+        <ul>
+            <li><strong>Силовые тренировки:</strong> утолщение стенки миокарда при сохранении объёма камер (концентрическая гипертрофия).</li>
+            <li><strong>Тренировки на выносливость:</strong> увеличение камер (дилатация) и умеренное изменение стенок.</li>
+            <li><strong>Патологическая гипертрофия:</strong> при гипертензии — критическое утолщение стенок из-за необходимости преодолевать высокое давление в аорте.</li>
+        </ul>
+
+        <h4>Молекулярная регуляция</h4>
+        <p>Путь mTOR (блокируется рапамицином) отвечает за рост мышц. В сердце при хроническом стрессе активируется каскад кальциневрина:</p>
+        <ol>
+            <li>Рост уровня Ca²⁺ в клетке.</li>
+            <li>Активация кальциневрина (фосфатаза).</li>
+            <li>Дефосфорилирование фактора NFAT → идёт в ядро → запускает гены гипертрофии.</li>
+        </ol>
+        <p>Экспрессия натрийуретических пептидов (ANP в предсердиях, BNP в желудочках) → вазодилатация и диурез → попытка снизить давление.</p>
+
+        <div class="sidebar-note-wide sidebar-note">
+            <strong>Клиническое значение:</strong> BNP — маркер сердечной недостаточности. Его уровень в крови повышается при перегрузке сердца, что помогает диагностировать патологию.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 11: ФИЗИОЛОГИЯ СКЕЛЕТНЫХ МЫШЦ -->
+    <!-- ============================================================ -->
+    <h2 id="section-muscle-skeleton">XI. Физиология скелетных мышц: структура, механизм сокращения и методы исследования</h2>
+
+    <div class="card card-peach">
+        <h3>Анатомическое устройство мышцы</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Оболочка</th><th>Объект изоляции</th><th>Особенности</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Эндомизий</td><td>Отдельные мышечные пучки (миоциты)</td><td>Внутренний слой</td></tr>
+                    <tr><td>Перимизий</td><td>Более крупные группы пучков</td><td>Средний слой</td></tr>
+                    <tr><td>Эпимизий</td><td>Вся мышца целиком</td><td>Наружная оболочка, переходит в сухожилие</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Молекулярное строение саркомера</h4>
+        <p><strong>Саркомер</strong> — участок между двумя Z-дисками. Поперечная исчерченность обусловлена чередованием филаментов.</p>
+        <ul>
+            <li><strong>Тонкие филаменты:</strong> глобулярный актин → фибриллярные цепи.</li>
+            <li><strong>Толстые филаменты:</strong> двухголовый миозин, фиксируется M-линией.</li>
+            <li><strong>Регуляторный комплекс:</strong> тропомиозин (закрывает сайты связывания) + три тропонина.</li>
+        </ul>
+
+        <div class="sidebar-note-wide sidebar-note">
+            <strong>Клиническое значение:</strong> сердечный тропонин — специфический маркер повреждения миокарда (инфаркта). При разрушении клеток он попадает в кровоток.
+        </div>
+    </div>
+
+    <div class="card card-sage">
+        <h3>Механизм мышечного сокращения</h3>
+        <p>Сокращение происходит по принципу <strong>скользящих нитей</strong>: актиновые и миозиновые филаменты не укорачиваются, а скользят друг относительно друга.</p>
+
+        <div class="scheme">
+            <div class="scheme-title">Электромеханическое сопряжение</div>
+            <div class="scheme-row">
+                <div class="scheme-box">Сигнал по сарколемме</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">T-трубочки</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-green">СПР выпускает Ca²⁺</div>
+            </div>
+            <div class="scheme-row">
+                <div class="scheme-arrow">↓</div>
+                <div class="scheme-box">Ca²⁺ + тропонин C</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-rose">Сдвиг тропомиозина</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">Миозин + актин</div>
+            </div>
+        </div>
+
+        <ol>
+            <li>Возбуждение по сарколемме → T-трубочки.</li>
+            <li>Сигнал на СПР → выброс Ca²⁺ в цитоплазму.</li>
+            <li>Ca²⁺ связывается с тропонином C → сдвиг тропомиозина → открытие сайтов на актине.</li>
+            <li>Головки миозина присоединяются к актину (без АТФ).</li>
+            <li>Присоединение и гидролиз АТФ → «гребок» → продвижение нитей.</li>
+        </ol>
+
+        <p><strong>Расслабление</strong> требует активной откачки Ca²⁺ обратно в ретикулум. Дефицит АТФ или избыток Ca²⁺ → ригидность (трупное окоченение).</p>
+    </div>
+
+    <div class="card card-mint">
+        <h3>Функциональная диагностика</h3>
+        <ul>
+            <li><strong>Динамометрия:</strong> измерение силы кистевого хвата. Сила разгибателей ног обычно выше, чем сгибателей (противостояние гравитации).</li>
+            <li><strong>Электромиография (ЭМГ):</strong> запись электрической активности мышц. Оценивает амплитуду сигнала и скорость ответа (M-волну).</li>
+        </ul>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 12: КОАГУЛЯЦИЯ И ИММУНИТЕТ -->
+    <!-- ============================================================ -->
+    <h2 id="section-coagulation">XII. Системы коагуляции, иммунитета и воспаления</h2>
+
+    <div class="card card-rose">
+        <h3>Система свёртывания крови (гемостаз)</h3>
+
+        <h4>Активация тромбоцитов и образование белого тромба</h4>
+        <p>Тромбоциты активируются при повреждении сосудистой стенки и контакте с подлежащими тканями:</p>
+        <ul>
+            <li>Взаимодействие с базальной мембраной (отрицательный заряд) → активация.</li>
+            <li>Контакт с клетками, отличными от эндотелия и клеток крови.</li>
+            <li>Активированные тромбоциты слипаются → <strong>белый тромб</strong> (тромбоцитарная пробка).</li>
+        </ul>
+
+        <h4>Формирование фибринового сгустка</h4>
+        <p>Белый тромб укрепляется сетью фибрина. Факторы свёртывания — плазменные белки (11 штук, нумерация 1–12, факторы 4 и 6 отсутствуют).</p>
+
+        <h4>Пути активации свёртывания</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Путь</th><th>Описание</th><th>Особенности</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Внешний</td><td>Контакт с компонентами вне сосудистого русла (тканевой фактор)</td><td>Медленное, но надёжное свёртывание. Работает у всех, включая больных гемофилией</td></tr>
+                    <tr><td>Внутренний</td><td>Контакт с коллагеном и отрицательно заряженными поверхностями</td><td>Множество положительных обратных связей. Не работает при гемофилии. После запуска — очень быстрое свёртывание</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Регуляция свёртывания</h4>
+        <p>Три системы в балансе:</p>
+        <ol>
+            <li><strong>Свёртывающая</strong> — образование тромбов.</li>
+            <li><strong>Антисвёртывающая</strong> — препятствует бесконтрольному росту тромбов.</li>
+            <li><strong>Фибринолиз</strong> — расщепление сформированных тромбов.</li>
+        </ol>
+        <p>Нарушение баланса: усиление → тромбозы; ослабление → кровотечения.</p>
+    </div>
+
+    <div class="card card-lavender">
+        <h3>Лейкоциты и иммунная система</h3>
+
+        <h4>Воспаление как часть иммунной реакции</h4>
+        <p>Пять признаков воспаления:</p>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Признак</th><th>Механизм</th><th>Значение</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Жар</td><td>Усиление кровотока, расширение сосудов</td><td>Снижает скорость распространения патогенов</td></tr>
+                    <tr><td>Покраснение</td><td>Усиление кровотока</td><td>Приток иммунных клеток и питательных веществ</td></tr>
+                    <tr><td>Отёк</td><td>Увеличение проницаемости сосудов → плазма и клетки в очаг</td><td>Доставка факторов защиты</td></tr>
+                    <tr><td>Боль</td><td>Давление отёка + медиаторы (простагландины, брадикинин)</td><td>Сигнал о повреждении, защитный механизм</td></tr>
+                    <tr><td>Нарушение функции</td><td>Воспалённая ткань не может нормально работать</td><td>Ограничение активности для восстановления</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Типы иммунитета</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Классификация</th><th>Тип</th><th>Характеристика</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td rowspan="2">По механизму</td><td>Клеточный</td><td>Клетка напрямую уничтожает патоген (фагоцитоз, цитотоксичность)</td></tr>
+                    <tr><td>Гуморальный</td><td>Антитела действуют на расстоянии</td></tr>
+                    <tr><td rowspan="2">По происхождению</td><td>Врождённый</td><td>Видовой (генетический), клеточные компоненты (макрофаги)</td></tr>
+                    <tr><td>Приобретённый (адаптивный)</td><td>Лимфоциты, иммунологическая память. Активный (после болезни/вакцины) и пассивный (готовые антитела)</td></tr>
+                    <tr><td rowspan="2">По способу приобретения</td><td>Естественный</td><td>Через болезнь</td></tr>
+                    <tr><td>Искусственный</td><td>Вакцинация (активный) или сыворотка (пассивный)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Основные игроки иммунитета</h4>
+        <ul>
+            <li><strong>Макрофаги:</strong> фагоцитоз, антиген-презентирующая функция (связь врождённого и приобретённого иммунитета).</li>
+            <li><strong>B-лимфоциты:</strong> наивные → плазматические (вырабатывают антитела) → клетки памяти.</li>
+            <li><strong>T-лимфоциты:</strong> T-киллеры (уничтожают инфицированные клетки по MHC I), T-хелперы (координируют), NK-клетки (уничтожают клетки без MHC I).</li>
+        </ul>
+
+        <h4>Классы антител (иммуноглобулинов)</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Класс</th><th>Особенности</th><th>Роль</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>IgM</td><td>Пентамер («звездочка»)</td><td>Первичный ответ, активация комплемента</td></tr>
+                    <tr><td>IgG</td><td>Мономер, самый распространённый в крови</td><td>Вторичный ответ, проникает через плаценту</td></tr>
+                    <tr><td>IgA</td><td>Мономеры, димеры, тримеры</td><td>Местный иммунитет на слизистых</td></tr>
+                    <tr><td>IgE</td><td>Мономер</td><td>Паразитарные инфекции, аллергии (связывание с тучными клетками)</td></tr>
+                    <tr><td>IgD</td><td>Мономер, на мембране B-клеток</td><td>Рецептор для активации B-клеток</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ 13: ПЛАЗМИДЫ -->
+    <!-- ============================================================ -->
+    <h2 id="section-plasmids">XIII. Структура и функции плазмид в генной инженерии</h2>
+
+    <div class="card card-mint">
+        <h3>Ключевые элементы плазмиды</h3>
+        <p>Плазмида — тщательно сконструированный вектор, содержащий несколько обязательных функциональных блоков.</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Элемент</th><th>Обозначение</th><th>Функция</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Origin репликации</td><td>ori</td><td>Участок начала репликации, обеспечивает сохранение плазмиды в поколениях</td></tr>
+                    <tr><td>Маркерный ген</td><td>Ген устойчивости к антибиотику</td><td>Селекция трансформированных клеток: только они выживают на среде с антибиотиком</td></tr>
+                    <tr><td>Сайт множественного клонирования</td><td>MCS (полилинкер)</td><td>Множество уникальных сайтов рестрикции для встраивания гена</td></tr>
+                    <tr><td>Промоутер</td><td>Promoter</td><td>Инициирует транскрипцию, определяет интенсивность и условия экспрессии</td></tr>
+                    <tr><td>Сайты связывания праймеров</td><td>Primer Binding Sites</td><td>Для ПЦР-анализа успешности вставки</td></tr>
+                    <tr><td>Вставка</td><td>Insert</td><td>Целевой ген или последовательность</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Детальное рассмотрение элементов</h4>
+        <ul>
+            <li><strong>ori:</strong> выбор влияет на копийность (если продукт токсичен — низкая копийность), совместимость с хозяином, возможность сосуществования нескольких плазмид.</li>
+            <li><strong>Маркерный ген:</strong> после трансформации клетки выращивают на среде с антибиотиком. Выживают только получившие плазмиду.</li>
+            <li><strong>MCS:</strong> располагается сразу после промоутера. Ориентация промоутера указывает направление синтеза РНК → ген нужно встроить в правильной ориентации.</li>
+            <li><strong>Промоутер:</strong> бывает сильным/слабым, конститутивным (постоянная экспрессия) и индуцибельным (в ответ на сигнал).</li>
+        </ul>
+
+        <h4>Проверка успешности вставки</h4>
+        <div class="scheme">
+            <div class="scheme-title">Алгоритм проверки клонирования</div>
+            <div class="scheme-row">
+                <div class="scheme-box">ПЦР с праймерами, фланкирующими MCS</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-green">Сравнение длины продуктов</div>
+            </div>
+            <div class="scheme-row">
+                <div class="scheme-arrow">↓</div>
+                <div class="scheme-box">Гель-электрофорез</div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-rose">Плазмида со вставкой длиннее</div>
+            </div>
+        </div>
+
+        <ol>
+            <li>ПЦР с праймерами, связывающимися с участками, окружающими MCS.</li>
+            <li>Без вставки длина продукта = расстояние между сайтами связывания праймеров.</li>
+            <li>Со вставкой продукт длиннее на размер вставки.</li>
+            <li>Гель-электрофорез: сравнение дорожек подтверждает клонирование.</li>
+        </ol>
+
+        <div class="sidebar-note-wide sidebar-note">
+            <strong>Итог:</strong> плазмида — не просто носитель гена, а сложный инструмент. Каждый компонент выполняет специфическую задачу: от репликации до контроля экспрессии. Всегда проверяйте результат клонирования методами ПЦР и гель-электрофореза.
+        </div>
+    </div>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <!-- ===== ИТОГОВЫЙ БЛОК ===== -->
+    <div class="card card-peach" style="margin-top: 60px;">
+        <h3 style="text-align:center; border-bottom: none;">🎓 Итоги и рекомендации</h3>
+        <ul>
+            <li>Всегда записывайте краткое условие с указанием единиц измерения (мкл, мл, мг, мкг).</li>
+            <li>В задачах на Харди-Вайнберга проверяйте, не задан ли фенотип одного из родителей.</li>
+            <li>Используйте обыкновенные дроби до финального этапа вычислений, чтобы избежать накопления ошибки округления.</li>
+            <li>При работе с родословными визуализируйте инбредные петли.</li>
+            <li>В химических задачах промежуточные вычисления проводите с большей точностью, финальный ответ — строго по требованию.</li>
+            <li>Помните: мембрана — динамическая структура, а не пассивный барьер.</li>
+            <li>Иммунная система — сложный баланс; избегайте факторов вторичного иммунодефицита.</li>
+        </ul>
+        <p style="text-align:center; margin-top: 24px; color: var(--text-muted); font-style: italic;">
+            ✦ Конец сводного конспекта ✦
+        </p>
+    </div>
+
+</div>
+</body>
+</html>
+    <!-- ============================================================ -->
+    <!-- ДОПОЛНИТЕЛЬНЫЙ РАЗДЕЛ: ЭКОЛОГИЯ — УГЛУБЛЕНИЕ -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XIV. Экология: дополнительные модели и примеры</h2>
+
+    <div class="card card-sage">
+        <h3>Модель развития с порогом температуры</h3>
+        <p>В реальных задачах часто используют понятие <strong>нижнего порога развития</strong> (T₀) — температуры, ниже которой развитие невозможно. Тогда уравнение принимает вид:</p>
+        <div class="formula">y = a / (x − T₀)</div>
+        <p>где <em>a</em> — сумма эффективных температур (СЭТ), необходимая для завершения стадии.</p>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> насекомое «набирает» тепло. Чем теплее, тем быстрее наберёт нужную сумму. При пороговой температуре набор равен нулю — развитие стоит на месте.
+        </div>
+
+        <div class="highlight-box">
+            <h4>📝 Пример: определение порога и СЭТ</h4>
+            <p><strong>Дано:</strong> при 20 °C развитие длится 18 дней, при 25 °C — 12 дней.</p>
+            <p><strong>Решение:</strong></p>
+            <p>18 = a / (20 − T₀) &nbsp;&nbsp; и &nbsp;&nbsp; 12 = a / (25 − T₀)</p>
+            <p>18(20 − T₀) = 12(25 − T₀) → 360 − 18T₀ = 300 − 12T₀ → 60 = 6T₀ → <strong>T₀ = 10 °C</strong>.</p>
+            <p>Тогда a = 18 × (20 − 10) = 180 градусо-дней.</p>
+            <p><strong>Прогноз при 30 °C:</strong> y = 180 / (30 − 10) = 9 дней.</p>
+        </div>
+    </div>
+
+    <div class="card card-mint">
+        <h3>Типы экологических взаимодействий</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Тип взаимодействия</th><th>Вид A</th><th>Вид B</th><th>Пример</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Нейтрализм</td><td>0</td><td>0</td><td>Белка и лось</td></tr>
+                    <tr><td>Конкуренция</td><td>−</td><td>−</td><td>Волк и лиса за добычу</td></tr>
+                    <tr><td>Аменсализм</td><td>−</td><td>0</td><td>Светолюбивое дерево подавляет травы</td></tr>
+                    <tr><td>Паразитизм</td><td>+</td><td>−</td><td>Плазмодий и человек</td></tr>
+                    <tr><td>Хищничество</td><td>+</td><td>−</td><td>Рысь и заяц</td></tr>
+                    <tr><td>Комменсализм</td><td>+</td><td>0</td><td>Рыба-прилипала и акула</td></tr>
+                    <tr><td>Мутуализм</td><td>+</td><td>+</td><td>Клубеньковые бактерии и бобовые</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ДОПОЛНИТЕЛЬНЫЙ РАЗДЕЛ: БИОХИМИЯ — АМИНОКИСЛОТЫ -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XV. Биохимия: аминокислоты и белки — углубление</h2>
+
+    <div class="card card-lavender">
+        <h3>Классификация аминокислот по свойствам радикала</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Группа</th><th>Аминокислоты</th><th>Свойства</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Неполярные (гидрофобные)</td><td>Глицин, аланин, валин, лейцин, изолейцин, метионин, пролин, фенилаланин, триптофан</td><td>Прячутся внутри белка, формируют гидрофобное ядро</td></tr>
+                    <tr><td>Полярные незаряженные</td><td>Серин, треонин, цистеин, тирозин, аспарагин, глутамин</td><td>Могут образовывать водородные связи</td></tr>
+                    <tr><td>Отрицательно заряженные (кислые)</td><td>Аспартат, глутамат</td><td>При pH 7 несут отрицательный заряд</td></tr>
+                    <tr><td>Положительно заряженные (основные)</td><td>Лизин, аргинин, гистидин</td><td>При pH 7 несут положительный заряд</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sidebar-note">
+            <strong>Мнемоника:</strong> «ГАВЛИМФП» — гидрофобные (Гли, Ала, Вал, Лей, Иле, Мет, Фен, Про). «СТЦТАГ» — полярные (Сер, Тре, Цис, Тир, Асн, Глн).
+        </div>
+
+        <h4>Уровни организации белка</h4>
+        <div class="scheme">
+            <div class="scheme-title">Четыре уровня структуры белка</div>
+            <div class="scheme-row">
+                <div class="scheme-box">Первичная<br><small>последовательность</small></div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-green">Вторичная<br><small>α-спираль, β-лист</small></div>
+            </div>
+            <div class="scheme-row">
+                <div class="scheme-arrow">↓</div>
+                <div class="scheme-box scheme-box-blue">Третичная<br><small>3D-укладка</small></div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-rose">Четвертичная<br><small>несколько цепей</small></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ДОПОЛНИТЕЛЬНЫЙ РАЗДЕЛ: ГЕНЕТИКА — ЗАДАЧИ -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XVI. Генетика: расширенные задачи и примеры</h2>
+
+    <div class="card card-rose">
+        <h3>Задача на сцепленное наследование</h3>
+        <div class="highlight-box">
+            <h4>📝 Условие</h4>
+            <p>У дрозофилы гены A и B сцеплены. Расстояние между ними 20 морганид. Скрещивают гетерозиготу AB/ab с гомозиготой ab/ab. Найти соотношение фенотипов потомства.</p>
+            <p><strong>Решение:</strong></p>
+            <p>Расстояние 20 морганид → 20% кроссоверных гамет, 80% некроссоверных.</p>
+            <p>Гаметы гетерозиготы: AB — 40%, ab — 40%, Ab — 10%, aB — 10%.</p>
+            <p>Потомство: AB/ab — 40%, ab/ab — 40%, Ab/ab — 10%, aB/ab — 10%.</p>
+            <p><strong>Соотношение фенотипов:</strong> 40 : 40 : 10 : 10.</p>
+        </div>
+
+        <h3>Задача на неполное доминирование</h3>
+        <div class="highlight-box">
+            <h4>📝 Условие</h4>
+            <p>У растения красная окраска (RR) не полностью доминирует над белой (rr). Гетерозигота Rr — розовая. Скрещивают два розовых растения. Найти расщепление.</p>
+            <p><strong>Решение:</strong> Rr × Rr → 1 RR (красный) : 2 Rr (розовый) : 1 rr (белый).</p>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ДОПОЛНИТЕЛЬНЫЙ РАЗДЕЛ: ХИМИЯ — ОВР -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XVII. Химия: окислительно-восстановительные реакции</h2>
+
+    <div class="card card-peach">
+        <h3>Метод электронного баланса</h3>
+        <p>Алгоритм:</p>
+        <ol>
+            <li>Определить степени окисления элементов.</li>
+            <li>Найти элементы, изменившие степень окисления.</li>
+            <li>Составить полуреакции окисления и восстановления.</li>
+            <li>Уравнять число отданных и принятых электронов (найти НОК).</li>
+            <li>Расставить коэффициенты.</li>
+        </ol>
+
+        <div class="highlight-box">
+            <h4>📝 Пример: взаимодействие фосфора с HNO₃ (конц.)</h4>
+            <p>P⁰ + HNO₃(конц.) → H₃P⁺⁵O₄ + N⁺⁴O₂ + H₂O</p>
+            <p>P⁰ − 5e⁻ → P⁺⁵ | ×1 (окисление)</p>
+            <p>N⁺⁵ + 1e⁻ → N⁺⁴ | ×5 (восстановление)</p>
+            <p>P + 5HNO₃ → H₃PO₄ + 5NO₂ + H₂O</p>
+        </div>
+
+        <h4>Типы ОВР</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Тип</th><th>Пример</th><th>Особенность</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Межмолекулярная</td><td>2H₂ + O₂ → 2H₂O</td><td>Окислитель и восстановитель — разные вещества</td></tr>
+                    <tr><td>Внутримолекулярная</td><td>2KClO₃ → 2KCl + 3O₂</td><td>Один элемент окисляется, другой восстанавливается в одном веществе</td></tr>
+                    <tr><td>Диспропорционирование</td><td>Cl₂ + 2NaOH → NaCl + NaClO + H₂O</td><td>Один элемент и окисляется, и восстанавливается</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ДОПОЛНИТЕЛЬНЫЙ РАЗДЕЛ: ИММУНОЛОГИЯ — УГЛУБЛЕНИЕ -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XVIII. Иммунология: клетки и сигналы</h2>
+
+    <div class="card card-sage">
+        <h3>Ключевые цитокины</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Цитокин</th><th>Продуцент</th><th>Функция</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>IL-1</td><td>Макрофаги</td><td>Лихорадка, активация Т-хелперов</td></tr>
+                    <tr><td>IL-2</td><td>Т-хелперы</td><td>Пролиферация Т-клеток</td></tr>
+                    <tr><td>IL-4</td><td>Т-хелперы 2 типа</td><td>Переключение на IgE, аллергии</td></tr>
+                    <tr><td>IL-6</td><td>Макрофаги, Т-клетки</td><td>Острое воспаление, синтез белков острой фазы</td></tr>
+                    <tr><td>IFN-γ</td><td>Т-хелперы 1 типа, NK</td><td>Активация макрофагов, противовирусный эффект</td></tr>
+                    <tr><td>TNF-α</td><td>Макрофаги</td><td>Системное воспаление, лихорадка, апоптоз</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> цитокины — это «гормоны иммунитета». Они передают сигналы между клетками: «сюда!», «атакуй!», «производи антитела!».
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ДОПОЛНИТЕЛЬНЫЙ РАЗДЕЛ: ЦИТОЛОГИЯ — ОРГАНЕЛЛЫ -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XIX. Цитология: обзор органелл</h2>
+
+    <div class="card card-mint">
+        <h3>Основные органеллы эукариотической клетки</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Органелла</th><th>Функция</th><th>Особенности</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Ядро</td><td>Хранение ДНК, транскрипция</td><td>Двойная мембрана, ядерные поры</td></tr>
+                    <tr><td>Митохондрия</td><td>Синтез АТФ (окислительное фосфорилирование)</td><td>Своя ДНК, двойная мембрана, кристы</td></tr>
+                    <tr><td>Хлоропласт</td><td>Фотосинтез</td><td>Своя ДНК, тилакоиды, граны</td></tr>
+                    <tr><td>ЭПС (гладкая)</td><td>Синтез липидов, детоксикация</td><td>Без рибосом</td></tr>
+                    <tr><td>ЭПС (шероховатая)</td><td>Синтез белков</td><td>С рибосомами</td></tr>
+                    <tr><td>Аппарат Гольджи</td><td>Сортировка и модификация белков</td><td>Стопка мембранных мешочков</td></tr>
+                    <tr><td>Лизосома</td><td>Расщепление веществ</td><td>Кислая среда, гидролазы</td></tr>
+                    <tr><td>Пероксисома</td><td>Разрушение H₂O₂</td><td>Каталаза</td></tr>
+                    <tr><td>Рибосома</td><td>Трансляция</td><td>РРНК + белки, две субъединицы</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ДОПОЛНИТЕЛЬНЫЙ РАЗДЕЛ: ФИЗИОЛОГИЯ — СЕРДЦЕ -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XX. Физиология сердца: цикл и показатели</h2>
+
+    <div class="card card-rose">
+        <h3>Фазы сердечного цикла</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Фаза</th><th>Длительность</th><th>Что происходит</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Систола предсердий</td><td>0.1 с</td><td>Предсердия сокращаются, кровь идёт в желудочки</td></tr>
+                    <tr><td>Систола желудочков</td><td>0.3 с</td><td>Желудочки сокращаются, кровь идёт в аорту и лёгочную артерию</td></tr>
+                    <tr><td>Диастола</td><td>0.4 с</td><td>Все камеры расслаблены, кровь заполняет предсердия и желудочки</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Основные показатели</h4>
+        <ul>
+            <li><strong>Ударный объём (УО):</strong> объём крови, выбрасываемый за одно сокращение (≈70 мл).</li>
+            <li><strong>Минутный объём (МО):</strong> УО × ЧСС (≈5 л/мин).</li>
+            <li><strong>Фракция выброса:</strong> (УО / КДО) × 100% (в норме 55–70%).</li>
+        </ul>
+
+        <div class="sidebar-note-wide sidebar-note">
+            <strong>Клиническая связь:</strong> при сердечной недостаточности фракция выброса падает. При гипертрофии (например, при гипертензии) стенка утолщается, но полость может уменьшаться → страдает наполнение.
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ДОПОЛНИТЕЛЬНЫЙ РАЗДЕЛ: ПАРАЗИТОЛОГИЯ — СРАВНЕНИЕ -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XXI. Паразитология: сравнение жизненных циклов</h2>
+
+    <div class="card card-lavender">
+        <h3>Малярийный плазмодий vs токсоплазма</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Признак</th><th>Plasmodium (малярия)</th><th>Toxoplasma (токсоплазмоз)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Окончательный хозяин</td><td>Комар (Anopheles)</td><td>Кошка</td></tr>
+                    <tr><td>Промежуточный хозяин</td><td>Человек</td><td>Человек, грызуны, птицы</td></tr>
+                    <tr><td>Локализация</td><td>Эритроциты, печень</td><td>Макрофаги, мозг, мышцы</td></tr>
+                    <tr><td>Клиника</td><td>Лихорадка (синхронный выход мерозоитов)</td><td>Часто бессимптомно, опасна при иммунодефиците</td></tr>
+                    <tr><td>Путь передачи</td><td>Укус комара</td><td>Ооцисты (с пищей), тканевые цисты</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sidebar-note-rose sidebar-note">
+            <strong>Важно:</strong> токсоплазма особенно опасна для беременных (поражение плода) и иммунодефицитных пациентов (токсоплазменный энцефалит).
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ДОПОЛНИТЕЛЬНЫЙ РАЗДЕЛ: ГЕННАЯ ИНЖЕНЕРИЯ — МЕТОДЫ -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XXII. Генная инженерия: ключевые методы</h2>
+
+    <div class="card card-mint">
+        <h3>ПЦР (полимеразная цепная реакция)</h3>
+        <div class="scheme">
+            <div class="scheme-title">Этапы ПЦР</div>
+            <div class="scheme-row">
+                <div class="scheme-box">Денатурация<br><small>95 °C</small></div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-green">Отжиг праймеров<br><small>55–65 °C</small></div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-blue">Элонгация<br><small>72 °C</small></div>
+            </div>
+        </div>
+        <p>Каждый цикл удваивает количество ДНК. После 30 циклов — более миллиарда копий.</p>
+
+        <h4>Рестрикционные ферменты</h4>
+        <p>«Молекулярные ножницы», узнающие специфические последовательности (палиндромы) и разрезающие ДНК. Например, EcoRI узнаёт GAATTC и режет между G и A.</p>
+
+        <h4>Лигирование</h4>
+        <p>ДНК-лигаза сшивает фрагменты ДНК, соединяя сахарофосфатный остов. Используется для вставки гена в плазмиду.</p>
+
+        <h4>Трансформация</h4>
+        <p>Введение плазмиды в клетку-хозяина (например, в бактерии). Методы: химическая компетентность (CaCl₂), электропорация.</p>
+
+        <div class="sidebar-note-wide sidebar-note">
+            <strong>Итог:</strong> плазмида + вставка + рестриктазы + лигаза → рекомбинантная ДНК → трансформация → селекция на антибиотике → проверка ПЦР и электрофорезом.
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ГЛОССАРИЙ -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XXIII. Глоссарий ключевых терминов</h2>
+
+    <div class="card card-peach">
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Термин</th><th>Определение</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Амфифильность</td><td>Свойство молекулы иметь гидрофильную и гидрофобную части (например, фосфолипиды)</td></tr>
+                    <tr><td>Анеуплоидия</td><td>Изменение числа хромосом, не кратное гаплоидному набору</td></tr>
+                    <tr><td>Апоптоз</td><td>Программируемая клеточная смерть</td></tr>
+                    <tr><td>Аутосомы</td><td>Неполовые хромосомы</td></tr>
+                    <tr><td>Бислой</td><td>Двойной слой липидов — основа мембраны</td></tr>
+                    <tr><td>Гаплоид</td><td>Набор хромосом, содержащий по одной копии каждого гена (n)</td></tr>
+                    <tr><td>Гомозигота</td><td>Организм с одинаковыми аллелями одного гена</td></tr>
+                    <tr><td>Гетерозигота</td><td>Организм с разными аллелями одного гена</td></tr>
+                    <tr><td>Диплоид</td><td>Набор хромосом, содержащий по две копии каждого гена (2n)</td></tr>
+                    <tr><td>Инбридинг</td><td>Скрещивание близкородственных организмов</td></tr>
+                    <tr><td>Кодон</td><td>Триплет нуклеотидов, кодирующий аминокислоту</td></tr>
+                    <tr><td>Локус</td><td>Местоположение гена на хромосоме</td></tr>
+                    <tr><td>Морганида</td><td>Единица расстояния между генами (1 морганида = 1% кроссинговера)</td></tr>
+                    <tr><td>Осмос</td><td>Движение воды через полупроницаемую мембрану в сторону большей концентрации солей</td></tr>
+                    <tr><td>Плазмида</td><td>Кольцевая ДНК, реплицирующаяся независимо от хромосомы</td></tr>
+                    <tr><td>Промоутер</td><td>Последовательность ДНК, инициирующая транскрипцию</td></tr>
+                    <tr><td>Рестриктаза</td><td>Фермент, разрезающий ДНК в специфических сайтах</td></tr>
+                    <tr><td>Сенсибилизация</td><td>Первый контакт с аллергеном, приводящий к синтезу IgE</td></tr>
+                    <tr><td>Тетанус</td><td>Слитное сокращение мышцы при высокой частоте стимуляции</td></tr>
+                    <tr><td>Фенотип</td><td>Совокупность признаков организма</td></tr>
+                    <tr><td>Экспрессия гена</td><td>Процесс реализации генетической информации (транскрипция + трансляция)</td></tr>
+                    <tr><td>Энтропия</td><td>Мера беспорядка в системе</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ЗАКЛЮЧИТЕЛЬНЫЙ БЛОК -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <div class="card card-sage" style="text-align:center; margin-top: 40px;">
+        <h3 style="border-bottom:none;">🌟 Финальное напутствие</h3>
+        <p style="font-size:1.1em; max-width:800px; margin:0 auto; line-height:2;">
+            Биология — это не набор фактов, а <strong>система взаимосвязей</strong>. Расчётные задачи тренируют точность, схемы — структурное мышление, а клинические примеры — умение видеть за формулами живые процессы. Возвращайтесь к этому конспекту перед олимпиадами и зачётами: он построен так, чтобы сложное становилось понятным.
+        </p>
+        <p style="margin-top:24px; color: var(--accent); font-size:1.3em; letter-spacing:6px;">✦ ✦ ✦</p>
+    </div>
+
+</div>
+</body>
+</html>    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ XXIV: КЛЕТОЧНЫЙ ЦИКЛ И ДЕЛЕНИЕ -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XXIV. Клеточный цикл и деление клетки</h2>
+
+    <div class="card card-mint">
+        <h3>Фазы клеточного цикла</h3>
+        <p><strong>Клеточный цикл</strong> — период от одного деления до следующего. Состоит из интерфазы и собственно деления (митоза или мейоза).</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Фаза</th><th>Что происходит</th><th>Набор ДНК</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>G1 (пресинтетическая)</td><td>Рост клетки, синтез белков и РНК, подготовка к репликации</td><td>2c (диплоидный)</td></tr>
+                    <tr><td>S (синтетическая)</td><td>Репликация ДНК — каждая хромосома состоит из двух сестринских хроматид</td><td>4c (удвоенный)</td></tr>
+                    <tr><td>G2 (постсинтетическая)</td><td>Проверка качества репликации, синтез белков для деления</td><td>4c</td></tr>
+                    <tr><td>M (митоз/мейоз)</td><td>Деление ядра и цитоплазмы</td><td>2c → 1c (после цитокинеза)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> G1 — «клетка растёт», S — «копирует ДНК», G2 — «проверяет, всё ли скопировано правильно», M — «делится».
+        </div>
+
+        <h4>Точки контроля клеточного цикла</h4>
+        <ul>
+            <li><strong>G1/S-контроль:</strong> проверка размера клетки, наличия питательных веществ и повреждений ДНК. Если есть повреждения — остановка в G1 для репарации или апоптоз.</li>
+            <li><strong>G2/M-контроль:</strong> проверка завершённости репликации и отсутствия повреждений ДНК.</li>
+            <li><strong>Контроль веретена (M-фаза):</strong> все ли хромосомы прикреплены к веретену деления.</li>
+        </ul>
+
+        <div class="sidebar-note-rose sidebar-note">
+            <strong>Патология:</strong> мутации в генах контроля (например, p53 — «страх клетки») приводят к бесконтрольному делению → опухоли.
+        </div>
+    </div>
+
+    <div class="card card-rose">
+        <h3>Митоз vs мейоз</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Признак</th><th>Митоз</th><th>Мейоз</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Тип деления</td><td>Одно деление</td><td>Два последовательных деления (мейоз I и II)</td></tr>
+                    <tr><td>Результат</td><td>Две клетки с набором 2n (диплоидные)</td><td>Четыре клетки с набором n (гаплоидные)</td></tr>
+                    <tr><td>Генетическая идентичность</td><td>Клетки идентичны материнской</td><td>Клетки генетически разнообразны (кроссинговер + независимое расхождение)</td></tr>
+                    <tr><td>Кроссинговер</td><td>Нет</td><td>Есть в профазе I</td></tr>
+                    <tr><td>Где происходит</td><td>Соматические клетки</td><td>Половые клетки (гонады)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Фазы митоза</h4>
+        <div class="scheme">
+            <div class="scheme-title">Профаза → Метафаза → Анафаза → Телофаза</div>
+            <div class="scheme-row">
+                <div class="scheme-box">Профаза<br><small>хромосомы конденсируются, ядрышко исчезает</small></div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-green">Метафаза<br><small>хромосомы выстраиваются по экватору</small></div>
+            </div>
+            <div class="scheme-row">
+                <div class="scheme-arrow">↓</div>
+                <div class="scheme-box scheme-box-blue">Анафаза<br><small>хроматиды расходятся к полюсам</small></div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-rose">Телофаза<br><small>формируются ядра, цитокинез</small></div>
+            </div>
+        </div>
+
+        <h4>Фазы мейоза</h4>
+        <ul>
+            <li><strong>Мейоз I (редукционное деление):</strong> гомологичные хромосомы расходятся → набор уменьшается вдвое (2n → n). Профаза I включает кроссинговер (обмен участками между гомологами).</li>
+            <li><strong>Мейоз II (эквационное деление):</strong> сестринские хроматиды расходятся, как в митозе.</li>
+        </ul>
+
+        <div class="sidebar-note-wide sidebar-note">
+            <strong>Главное отличие:</strong> митоз — «копирование» (нужны одинаковые клетки для роста и регенерации). Мейоз — «перетасовка» (нужны разнообразные гаметы для эволюции).
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ XXV: ФОТОСИНТЕЗ И ХЕМОСИНТЕЗ -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XXV. Фотосинтез и хемосинтез</h2>
+
+    <div class="card card-sage">
+        <h3>Световая и темновая фазы фотосинтеза</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Фаза</th><th>Локализация</th><th>Процессы</th><th>Продукты</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Световая</td><td>Тилакоиды (мембраны)</td><td>Фотолиз воды, фотосистемы I и II, электрон-транспортная цепь, хемиосмос</td><td>АТФ, НАДФН, O₂ (побочный продукт)</td></tr>
+                    <tr><td>Темновая (цикл Кальвина)</td><td>Строма</td><td>Фиксация CO₂, восстановление, регенерация рибулозо-1,5-бисфосфата</td><td>Глюкоза (и другие сахара)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="formula">6CO₂ + 6H₂O + свет → C₆H₁₂O₆ + 6O₂</div>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> световая фаза — «энергетическая станция» (производит АТФ и НАДФН, запасает энергию). Темновая — «строительная площадка» (использует энергию для сборки глюкозы из CO₂).
+        </div>
+
+        <h4>Хемосинтез</h4>
+        <p>Синтез органических веществ за счёт энергии окисления неорганических соединений (без света). Примеры:</p>
+        <ul>
+            <li><strong>Нитрифицирующие бактерии:</strong> NH₃ → NO₂⁻ → NO₃⁻.</li>
+            <li><strong>Серобактерии:</strong> H₂S → S → H₂SO₄.</li>
+            <li><strong>Железобактерии:</strong> Fe²⁺ → Fe³⁺.</li>
+        </ul>
+        <p>Хемосинтез — основа жизни в экосистемах без света (глубоководные гидротермальные источники).</p>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ XXVI: ВИРУСЫ -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XXVI. Вирусы: строение и репродукция</h2>
+
+    <div class="card card-lavender">
+        <h3>Строение вируса</h3>
+        <div class="scheme">
+            <div class="scheme-title">Основные компоненты</div>
+            <div class="scheme-row">
+                <div class="scheme-box">Нуклеиновая кислота<br><small>ДНК или РНК</small></div>
+                <div class="scheme-arrow">+</div>
+                <div class="scheme-box scheme-box-green">Капсид<br><small>белковая оболочка</small></div>
+                <div class="scheme-arrow">+</div>
+                <div class="scheme-box scheme-box-blue">Суперкапсид<br><small>липидная мембрана (не всегда)</small></div>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Тип</th><th>Пример</th><th>Геном</th><th>Особенности</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>ДНК-вирусы</td><td>Вирус герпеса, оспы</td><td>ДНК</td><td>Часто встраиваются в геном хозяина</td></tr>
+                    <tr><td>РНК-вирусы</td><td>Вирус гриппа, ВИЧ</td><td>РНК</td><td>Высокая скорость мутаций</td></tr>
+                    <tr><td>Бактериофаги</td><td>Фаг T4</td><td>ДНК</td><td>Поражают бактерии</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Репродукция вируса (на примере ВИЧ)</h4>
+        <ol>
+            <li><strong>Прикрепление:</strong> вирус связывается с рецептором CD4 на Т-хелперах.</li>
+            <li><strong>Проникновение:</strong> слияние мембран или эндоцитоз.</li>
+            <li><strong>Обратная транскрипция:</strong> РНК → ДНК (фермент обратная транскриптаза).</li>
+            <li><strong>Встраивание:</strong> вирусная ДНК встраивается в геном хозяина (интеграза).</li>
+            <li><strong>Транскрипция и трансляция:</strong> синтез вирусных белков.</li>
+            <li><strong>Сборка и выход:</strong> новые вирионы покидают клетку (почкование).</li>
+        </ol>
+
+        <div class="sidebar-note-rose sidebar-note">
+            <strong>Клиническая связь:</strong> ВИЧ поражает Т-хелперы → разрушает систему координации иммунитета → развивается СПИД (синдром приобретённого иммунодефицита).
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ XXVII: ГЕНЕТИКА ЧЕЛОВЕКА -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XXVII. Генетика человека: типы наследования</h2>
+
+    <div class="card card-peach">
+        <h3>Основные типы наследования</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Тип</th><th>Пример заболевания</th><th>Особенности</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Аутосомно-доминантный</td><td>Синдром Марфана, ахондроплазия</td><td>Достаточно одной мутантной аллели. Поражает оба пола. Часто встречается в каждом поколении</td></tr>
+                    <tr><td>Аутосомно-рецессивный</td><td>Фенилкетонурия, муковисцидоз</td><td>Нужны две мутантные аллели. Чаще у детей здоровых родителей-носителей. Риск ↑ при близкородственных браках</td></tr>
+                    <tr><td>X-сцепленный рецессивный</td><td>Гемофилия, дальтонизм</td><td>Болеют преимущественно мужчины (XY). Мать-носительница передаёт сыновьям</td></tr>
+                    <tr><td>X-сцепленный доминантный</td><td>Витамин-D-резистентный рахит</td><td>Болеют и мужчины, и женщины, но у женщин тяжелее</td></tr>
+                    <tr><td>Y-сцепленный</td><td>Голландская болезнь (редко)</td><td>Передаётся только от отца к сыну</td></tr>
+                    <tr><td>Митохондриальный</td><td>Синдром MELAS</td><td>Передаётся только от матери (митохондрии в яйцеклетке)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Составление родословных</h4>
+        <ul>
+            <li>Квадрат — мужчина, круг — женщина.</li>
+            <li>Заштрихованный — больной, пустой — здоровый.</li>
+            <li>Горизонтальная линия — брак, вертикальная — потомство.</li>
+            <li>Римские цифры — поколения, арабские — индивиды в поколении.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <h4>📝 Пример: гемофилия</h4>
+            <p>Мать-носительница (X<sup>H</sup>X<sup>h</sup>) × здоровый отец (X<sup>H</sup>Y).</p>
+            <p>Потомство: 25% здоровые девочки (X<sup>H</sup>X<sup>H</sup>), 25% девочки-носительницы (X<sup>H</sup>X<sup>h</sup>), 25% здоровые мальчики (X<sup>H</sup>Y), 25% больные мальчики (X<sup>h</sup>Y).</p>
+            <p><strong>Вероятность больного ребёнка — 25% (только мальчики).</strong></p>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ XXVIII: ЭВОЛЮЦИЯ -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XXVIII. Эволюция: движущие силы и механизмы</h2>
+
+    <div class="card card-mint">
+        <h3>Движущие силы эволюции по Дарвину</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Сила</th><th>Суть</th><th>Пример</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Наследственная изменчивость</td><td>Разнообразие признаков в популяции</td><td>Разная длина шеи у жирафов</td></tr>
+                    <tr><td>Борьба за существование</td><td>Конкуренция за ресурсы</td><td>Нехватка пищи, воды, территории</td></tr>
+                    <tr><td>Естественный отбор</td><td>Выживают и размножаются наиболее приспособленные</td><td>Жирафы с длинной шеей достают листья</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Синтетическая теория эволюции (СТЭ)</h4>
+        <ul>
+            <li><strong>Мутации</strong> — элементарный эволюционный материал.</li>
+            <li><strong>Популяционные волны</strong> («волны жизни») — колебания численности.</li>
+            <li><strong>Изоляция</strong> — географическая или репродуктивная.</li>
+            <li><strong>Дрейф генов</strong> — случайное изменение частот аллелей в малых популяциях.</li>
+            <li><strong>Естественный отбор</strong> — направляющий фактор.</li>
+        </ul>
+
+        <div class="sidebar-note">
+            <strong>Простыми словами:</strong> эволюция — это не «стремление к совершенству», а результат случайных мутаций и отбора. Кто оставил больше потомства — тот и «победил» в эволюционной гонке.
+        </div>
+
+        <h4>Формы естественного отбора</h4>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Форма</th><th>Действие</th><th>Пример</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Движущий</td><td>Сдвигает признак в одном направлении</td><td>Потемнение окраски берёзовой пяденицы при загрязнении</td></tr>
+                    <tr><td>Стабилизирующий</td><td>Сохраняет среднее значение признака</td><td>Масса новорождённых (слишком крупные и слишком мелкие погибают)</td></tr>
+                    <tr><td>Дизруптивный</td><td>Поддерживает крайние значения</td><td>Две формы клюва у африканских птиц</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ XXIX: ЭКОСИСТЕМЫ -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XXIX. Экосистемы: структура и трофические цепи</h2>
+
+    <div class="card card-rose">
+        <h3>Компоненты экосистемы</h3>
+        <ul>
+            <li><strong>Продуценты</strong> (автотрофы): растения, фотосинтезирующие бактерии — производят органику из неорганической.</li>
+            <li><strong>Консументы</strong> (гетеротрофы): травоядные (I порядка), хищники (II порядка и т.д.).</li>
+            <li><strong>Редуценты</strong> (деструкторы): грибы, бактерии — разлагают мёртвую органику до минеральных веществ.</li>
+        </ul>
+
+        <h4>Трофические цепи</h4>
+        <div class="scheme">
+            <div class="scheme-title">Пастбищная цепь</div>
+            <div class="scheme-row">
+                <div class="scheme-box scheme-box-green">Продуцент<br><small>трава</small></div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">Консумент I<br><small>кузнечик</small></div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box scheme-box-rose">Консумент II<br><small>лягушка</small></div>
+                <div class="scheme-arrow">→</div>
+                <div class="scheme-box">Консумент III<br><small>ужас</small></div>
+            </div>
+        </div>
+
+        <h4>Правило 10% (Линдемана)</h4>
+        <p>При переходе с одного трофического уровня на другой передаётся около <strong>10% энергии</strong>. Остальные 90% расходуются на дыхание, тепло и выделяются с отходами.</p>
+
+        <div class="highlight-box">
+            <h4>📝 Пример расчёта</h4>
+            <p>Если продуценты запасли 100 000 кДж энергии, то:</p>
+            <ul>
+                <li>Консументы I порядка получат 10 000 кДж.</li>
+                <li>Консументы II порядка — 1 000 кДж.</li>
+                <li>Консументы III порядка — 100 кДж.</li>
+            </ul>
+        </div>
+
+        <div class="sidebar-note-wide sidebar-note">
+            <strong>Экологическая пирамида:</strong> пирамида чисел, биомассы или энергии. Энергетическая пирамида всегда сужается кверху (правило 10%).
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- РАЗДЕЛ XXX: ИТОГОВАЯ ТАБЛИЦА РАСЧЁТНЫХ ФОРМУЛ -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <h2>XXX. Сводная таблица расчётных формул</h2>
+
+    <div class="card card-peach">
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Тема</th><th>Формула</th><th>Пояснение</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Экология: развитие насекомых</td><td>y = c + a/x (при b=0)</td><td>y — время, x — температура, a — СЭТ, c — константа</td></tr>
+                    <tr><td>Экология: порог развития</td><td>y = a/(x − T₀)</td><td>T₀ — нижний порог температуры</td></tr>
+                    <tr><td>Биохимия: закон Бугера-Ламберта-Бера</td><td>A = ε·c·l</td><td>A — оптическая плотность, ε — экстинкция, c — концентрация, l — длина пути</td></tr>
+                    <tr><td>Биохимия: специфическая активность</td><td>Act = мкмоль/(мин·мг белка)</td><td>Активность на массу белка</td></tr>
+                    <tr><td>Генетика: Харди-Вайнберг</td><td>p² + 2pq + q² = 1</td><td>p, q — частоты аллелей</td></tr>
+                    <tr><td>Генетика: инбридинг</td><td>F = (1/2)ⁿ</td><td>n — число особей в петле (без потомка)</td></tr>
+                    <tr><td>Химия: массовая доля</td><td>ω = (Aᵣ·k)/Mᵣ × 100%</td><td>k — число атомов элемента</td></tr>
+                    <tr><td>Химия: количество вещества</td><td>n = m/M; n = V/Vₘ</td><td>Vₘ = 22.4 л/моль (н.у.)</td></tr>
+                    <tr><td>Геномика: log-odds</td><td>log₂(x) = ln(x)/ln(2)</td><td>Для сравнения гипотез</td></tr>
+                    <tr><td>Экология: правило 10%</td><td>E<sub>n+1</sub> = 0.1 · E<sub>n</sub></td><td>Переход энергии между трофическими уровнями</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ЗАКЛЮЧИТЕЛЬНЫЙ БЛОК -->
+    <!-- ============================================================ -->
+    <div class="divider">✦ ✦ ✦</div>
+    <div class="card card-sage" style="text-align:center; margin-top: 40px;">
+        <h3 style="border-bottom:none;">🌈 Завершение</h3>
+        <p style="font-size:1.1em; max-width:800px; margin:0 auto; line-height:2;">
+            Этот конспект охватывает широкий спектр биологических и химических дисциплин — от молекулярных основ до экосистемных процессов. Используйте его как справочник при подготовке к олимпиадам, экзаменам и зачётам. Помните: понимание логики важнее зубрёжки формул.
+        </p>
+        <p style="margin-top:24px; color: var(--accent); font-size:1.3em; letter-spacing:6px;">✦ ✦ ✦</p>
+    </div>
+
+</div>
+</body>
+</html>
